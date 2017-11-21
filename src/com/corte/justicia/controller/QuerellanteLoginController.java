@@ -70,10 +70,10 @@ public class QuerellanteLoginController implements Initializable {
 
         if (username.equals("admin")) {
             errorLabel.setVisible(false);
-            Validacion.rightLabelTextField(usuario);
+            Validacion.greenInputTextField(usuario);
  
         }else {
-            Validacion.errorLabelTextField(usuario);
+            Validacion.redInputTextField(usuario);
             errorLabel.setVisible(true);
 
         }

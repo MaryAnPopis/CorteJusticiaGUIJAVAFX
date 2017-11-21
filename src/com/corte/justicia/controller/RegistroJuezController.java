@@ -37,7 +37,7 @@ public class RegistroJuezController implements Initializable {
     @FXML
     void registrarJuez(ActionEvent event) {
 
-        if (!Validacion.passMatch(confirmPass, passwordField, errorLabelNoMatch) && !isBlankInput()) {
+        if (!Validacion.passMatch(confirmPass, passwordField, errorLabelNoMatch) && !isEmptyInput()) {
 
             errorLabelFalse();
             rigthValidationBunk();
@@ -68,26 +68,33 @@ public class RegistroJuezController implements Initializable {
         errorLabelCedula.setVisible(false);
         errorLabelContrasenna2.setVisible(false);
     }
-
+    /**
+     * 
+     */
     void rigthValidationBunk() {
-        Validacion.rightLabelTextField(nameField);
-        Validacion.rightLabelTextField(surnameField);
-        Validacion.rightLabelTextField(phoneNumField);
-        Validacion.rightLabelTextField(usernameField);
-        Validacion.rightLabelTextField(salaField);
-        Validacion.rightLabelTextField(cedulaField);
-        Validacion.rightLabelPasswordField(passwordField);
-        Validacion.rightLabelPasswordField(confirmPass);
+        Validacion.greenInputTextField(nameField);
+        Validacion.greenInputTextField(surnameField);
+        Validacion.greenInputTextField(phoneNumField);
+        Validacion.greenInputTextField(usernameField);
+        Validacion.greenInputTextField(salaField);
+        Validacion.greenInputTextField(cedulaField);
+        Validacion.greenInputPasswordField(passwordField);
+        Validacion.greenInputPasswordField(confirmPass);
 
         
     }
-    
+    /**
+     * Alerta de exito al registrar
+     */
     void sucessBanner(){
         exitoBanner.setVisible(true);
         FXUtils.fadeInBanner(exitoBanner);
         exitoLabel.setVisible(true);
     }
-
+    /**
+     * Añade un color y label al input dependiendo si
+     * esta lleno o vacio
+     */
     void redInputs() {
 
         String nombre = nameField.getText();
@@ -101,89 +108,92 @@ public class RegistroJuezController implements Initializable {
 
         //JFXPasswordField
         if (contrasenna.isEmpty()) {
-            Validacion.errorLabelPasswordField(passwordField);
+            Validacion.redInputPasswordField(passwordField);
             errorLabelContrasenna.setVisible(true);
         } else {
-            Validacion.rightLabelPasswordField(passwordField);
+            Validacion.greenInputPasswordField(passwordField);
             errorLabelContrasenna.setVisible(false);
         }
 
         if (contrasenna2.isEmpty()) {
-            Validacion.errorLabelPasswordField(confirmPass);
+            Validacion.redInputPasswordField(confirmPass);
             errorLabelContrasenna2.setVisible(true);
         } else {
-            Validacion.rightLabelPasswordField(confirmPass);
+            Validacion.greenInputPasswordField(confirmPass);
             errorLabelContrasenna2.setVisible(false);
         }
         //JFXTextField
         if (nombre.isEmpty()) {
-            Validacion.errorLabelTextField(nameField);
+            Validacion.redInputTextField(nameField);
             errorLabelNombre.setVisible(true);
         } else {
-            Validacion.rightLabelTextField(nameField);
+            Validacion.greenInputTextField(nameField);
             errorLabelNombre.setVisible(false);
         }
 
         if (apellido1.isEmpty()) {
-            Validacion.errorLabelTextField(surnameField);
+            Validacion.redInputTextField(surnameField);
             errorLabelApellido.setVisible(true);
         } else {
-            Validacion.rightLabelTextField(surnameField);
+            Validacion.greenInputTextField(surnameField);
             errorLabelApellido.setVisible(false);
         }
 
-        Validacion.rightLabelTextField(secondSurnameField);
+        Validacion.greenInputTextField(secondSurnameField);
 
         if (telefono.isEmpty()) {
-            Validacion.errorLabelTextField(phoneNumField);
+            Validacion.redInputTextField(phoneNumField);
             errorLabelTelefono.setVisible(true);
         } else {
-            Validacion.rightLabelTextField(phoneNumField);
+            Validacion.greenInputTextField(phoneNumField);
             errorLabelTelefono.setVisible(false);
         }
 
         if (usuario.isEmpty()) {
-            Validacion.errorLabelTextField(usernameField);
+            Validacion.redInputTextField(usernameField);
             errorLabelUsuario.setVisible(true);
         } else {
-            Validacion.rightLabelTextField(usernameField);
+            Validacion.greenInputTextField(usernameField);
             errorLabelUsuario.setVisible(false);
         }
 
         if (sala.isEmpty()) {
-            Validacion.errorLabelTextField(salaField);
+            Validacion.redInputTextField(salaField);
             errorLabelSala.setVisible(true);
         } else {
-            Validacion.rightLabelTextField(salaField);
+            Validacion.greenInputTextField(salaField);
             errorLabelSala.setVisible(false);
         }
 
         if (cedula.isEmpty()) {
-            Validacion.errorLabelTextField(cedulaField);
+            Validacion.redInputTextField(cedulaField);
             errorLabelCedula.setVisible(true);
         } else {
-            Validacion.rightLabelTextField(cedulaField);
+            Validacion.greenInputTextField(cedulaField);
             errorLabelCedula.setVisible(false);
         }
 
         if (contrasenna.isEmpty()) {
-            Validacion.errorLabelPasswordField(passwordField);
+            Validacion.redInputPasswordField(passwordField);
             errorLabelContrasenna.setVisible(true);
         } else {
-            Validacion.rightLabelPasswordField(passwordField);
+            Validacion.greenInputPasswordField(passwordField);
             errorLabelContrasenna.setVisible(false);
         }
 
         if (contrasenna2.isEmpty()) {
-            Validacion.errorLabelPasswordField(confirmPass);
+            Validacion.redInputPasswordField(confirmPass);
             errorLabelContrasenna2.setVisible(true);
         } else {
-            Validacion.rightLabelPasswordField(confirmPass);
+            Validacion.greenInputPasswordField(confirmPass);
             errorLabelContrasenna2.setVisible(false);
         }
     }
-
-    boolean isBlankInput() {
+    /**
+     * Este metodo revisa los inputs vacios
+     * @return boolean true si hay algun input en blanco
+     */
+    boolean isEmptyInput() {
 
         String nombre = nameField.getText();
         String apellido1 = surnameField.getText();
@@ -216,7 +226,10 @@ public class RegistroJuezController implements Initializable {
         registroBtn.setDefaultButton(true);
         btnAceptar.setDefaultButton(true);
     }
-
+    /**
+     * Cierra la aplicacion
+     * @param event 
+     */
     @FXML
     void exitApp(MouseEvent event) {
         System.exit(0);

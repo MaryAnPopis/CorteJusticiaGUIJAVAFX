@@ -67,11 +67,11 @@ public class SecretarioLoginController implements Initializable {
 
         if (username.equals("admin") && contrasenna.equals("admin")) {
             errorLabel.setVisible(false);
-            Validacion.rightLabelTextField(usuario);
-            Validacion.rightLabelPasswordField(password);
+            Validacion.greenInputTextField(usuario);
+            Validacion.greenInputPasswordField(password);
         }else {
-            Validacion.errorLabelTextField(usuario);
-            Validacion.errorLabelPasswordField(password);
+            Validacion.redInputTextField(usuario);
+            Validacion.redInputPasswordField(password);
             errorLabel.setVisible(true);
 
         }

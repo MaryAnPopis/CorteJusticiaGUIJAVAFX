@@ -11,25 +11,25 @@ import javafx.scene.control.Label;
 public class Validacion {
     
     
-    public static void rightLabelTextField(JFXTextField u) {
+    public static void greenInputTextField(JFXTextField u) {
         u.setStyle("-jfx-unfocus-color:#a6bd55; "
                 + "-jfx-focus-color: #a6bd55;"
                 + "-fx-prompt-text-fill: #a6bd55; ");
     }
     
-    public static void rightLabelPasswordField(JFXPasswordField p) {
+    public static void greenInputPasswordField(JFXPasswordField p) {
          p.setStyle("-jfx-unfocus-color:#a6bd55; "
                 + "-jfx-focus-color: #a6bd55;"
                 + "-fx-prompt-text-fill: #a6bd55; ");
     }
     
-    public static void errorLabelTextField(JFXTextField u) {
+    public static void redInputTextField(JFXTextField u) {
         u.setStyle("-jfx-unfocus-color:#e74c3c;"
                 + " -jfx-focus-color: #e74c3c;"
                 + "-fx-prompt-text-fill: #e74c3c; ");
     }
     
-    public static void errorLabelPasswordField(JFXPasswordField p) {
+    public static void redInputPasswordField(JFXPasswordField p) {
 
         p.setStyle("-jfx-unfocus-color:#e74c3c; "
                 + "-jfx-focus-color: #e74c3c;"
@@ -42,8 +42,8 @@ public class Validacion {
 
         if (!contrasenna.equals(contrasenna2)) {
             errorLabelNoMatch.setVisible(true);
-            Validacion.errorLabelPasswordField(confirmPass);
-            Validacion.errorLabelPasswordField(passwordField);
+            Validacion.redInputPasswordField(confirmPass);
+            Validacion.redInputPasswordField(passwordField);
             return true;
         } else {
 
