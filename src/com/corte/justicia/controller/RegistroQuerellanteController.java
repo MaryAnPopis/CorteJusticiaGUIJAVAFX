@@ -5,13 +5,18 @@
  */
 package com.corte.justicia.controller;
 
+import com.corte.justicia.utils.FXUtils;
+import com.corte.justicia.utils.Validacion;
 import com.jfoenix.controls.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+
 /**
  * FXML Controller class
  *
@@ -20,41 +25,145 @@ import javafx.scene.input.MouseEvent;
 public class RegistroQuerellanteController implements Initializable {
 
     @FXML
-    private JFXButton backArrow;
+    private JFXTextField nameField, surnameField, secondSurnameField, phoneNumField,
+            direccionField, cedulaField;
 
     @FXML
-    private JFXTextField nameField;
+    private Label errorLabelNombre, errorLabelApellido, errorLabelTelefono, errorLabelCedula,
+            errorLabelDireccion, exitoLabel;
 
     @FXML
-    private Label errorLabelNombre;
+    private AnchorPane exitoBanner;
 
     @FXML
-    private JFXTextField surnameField;
+    private JFXButton backArrow, btnAceptar, registroBtn;
 
+    /**
+     * Registra el querellante
+     *
+     * @param event
+     */
     @FXML
-    private Label errorLabelApellido;
+    void registrarQuerellante(ActionEvent event) {
 
-    @FXML
-    private JFXTextField secondSurnameField;
+        if (!isEmptyInput()) {
 
-    @FXML
-    private JFXTextField phoneNumField;
+            errorLabelFalse();
+            turnGreenInput();
+            Validacion.sucessBanner(exitoBanner, exitoLabel);
+        } else {
+            styleInputError();
 
-    @FXML
-    private Label errorLabelTelefono;
+        }
 
-    @FXML
-    private JFXTextField direccionField;
+    }
 
-    @FXML
-    private Label errorLabelCedula;
+    /**
+     * Añade un color y label al input dependiendo si esta lleno o vacio
+     */
+    void styleInputError() {
 
-    @FXML
-    private JFXTextField cedulaField;
-    
-    @FXML
-    private Label errorLabelDireccion;
+        String nombre = nameField.getText();
+        String apellido1 = surnameField.getText();
+        String telefono = phoneNumField.getText();
+        String direccion = direccionField.getText();
+        String cedula = cedulaField.getText();
 
+        //JFXTextField
+        if (nombre.isEmpty()) {
+            Validacion.redInputTextField(nameField);
+            errorLabelNombre.setVisible(true);
+        } else {
+            Validacion.greenInputTextField(nameField);
+            errorLabelNombre.setVisible(false);
+        }
+
+        if (apellido1.isEmpty()) {
+            Validacion.redInputTextField(surnameField);
+            errorLabelApellido.setVisible(true);
+        } else {
+            Validacion.greenInputTextField(surnameField);
+            errorLabelApellido.setVisible(false);
+        }
+
+        Validacion.greenInputTextField(secondSurnameField);
+
+        if (telefono.isEmpty()) {
+            Validacion.redInputTextField(phoneNumField);
+            errorLabelTelefono.setVisible(true);
+        } else {
+            Validacion.greenInputTextField(phoneNumField);
+            errorLabelTelefono.setVisible(false);
+        }
+
+        if (direccion.isEmpty()) {
+            Validacion.redInputTextField(direccionField);
+            errorLabelDireccion.setVisible(true);
+        } else {
+            Validacion.greenInputTextField(direccionField);
+            errorLabelDireccion.setVisible(false);
+        }
+
+        if (cedula.isEmpty()) {
+            Validacion.redInputTextField(cedulaField);
+            errorLabelCedula.setVisible(true);
+        } else {
+            Validacion.greenInputTextField(cedulaField);
+            errorLabelCedula.setVisible(false);
+        }
+
+    }
+
+    /**
+     * Agrega estilos de color verde al los input
+     */
+    void turnGreenInput() {
+        Validacion.greenInputTextField(nameField);
+        Validacion.greenInputTextField(surnameField);
+        Validacion.greenInputTextField(phoneNumField);
+        Validacion.greenInputTextField(cedulaField);
+        Validacion.greenInputTextField(direccionField);
+    }
+
+    /**
+     * Este metodo revisa los inputs vacios
+     *
+     * @return boolean true si hay algun input en blanco
+     */
+    boolean isEmptyInput() {
+
+        String nombre = nameField.getText();
+        String apellido1 = surnameField.getText();
+        String telefono = phoneNumField.getText();
+        String direccion = direccionField.getText();
+        String cedula = cedulaField.getText();
+
+        String[] inputs = {nombre, apellido1, telefono, cedula, direccion};
+
+        for (int i = 0; i < inputs.length; i++) {
+            if (inputs[i].isEmpty()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Cierra el alert de succes
+     *
+     * @param event boton para cerra el alert
+     */
+    @FXML
+    void exitSuccessBanner(ActionEvent event) {
+        FXUtils.fadeOutBanner(exitoBanner);
+        
+    }
+
+    /**
+     * Cierra la aplicacion
+     *
+     * @param event
+     */
     @FXML
     void exitApp(MouseEvent event) {
         System.exit(0);
@@ -66,15 +175,27 @@ public class RegistroQuerellanteController implements Initializable {
     }
 
     /**
-     * Initializes the controller class.
+     * Set los label a false para que no se vean
      */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    void errorLabelFalse() {
         errorLabelNombre.setVisible(false);
         errorLabelApellido.setVisible(false);
         errorLabelTelefono.setVisible(false);
         errorLabelCedula.setVisible(false);
         errorLabelDireccion.setVisible(false);
+    }
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        
+        errorLabelFalse();
+        registroBtn.setDefaultButton(true);
+        exitoLabel.setVisible(false);
+        exitoBanner.setVisible(false);
+        
     }
 
 }

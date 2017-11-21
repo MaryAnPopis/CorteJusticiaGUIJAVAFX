@@ -237,8 +237,12 @@ public class RegistroSecretarioController implements Initializable {
         stage.close();
     }
     
+    /**
+     * Cierra el alert de succes
+     * @param event boton para cerra el alert
+     */
     @FXML
-    void quitExitBanner(ActionEvent event) {
+    void exitSuccessBanner(ActionEvent event) {
         
         FXUtils.fadeOutBanner(exitoBanner);
 

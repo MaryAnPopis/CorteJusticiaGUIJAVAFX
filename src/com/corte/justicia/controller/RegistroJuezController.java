@@ -33,6 +33,8 @@ public class RegistroJuezController implements Initializable {
 
     @FXML
     private AnchorPane exitoBanner;
+    
+    
     /**
      * Registra el juez
      * @param event 
@@ -59,7 +61,7 @@ public class RegistroJuezController implements Initializable {
      * @param event boton para cerra el alert
      */
     @FXML
-    void quitExitBanner(ActionEvent event) {
+    void exitSuccessBanner(ActionEvent event) {
         
         FXUtils.fadeOutBanner(exitoBanner);
     }

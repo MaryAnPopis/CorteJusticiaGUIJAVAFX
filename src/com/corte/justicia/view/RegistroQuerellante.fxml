@@ -76,7 +76,7 @@
             </VBox>
             <HBox layoutY="415.0" prefHeight="36.0" prefWidth="800.0">
                <children>
-                  <JFXButton prefHeight="70.0" prefWidth="800.0" ripplerFill="#3b3d4d" styleClass="jfx-button-main-style" stylesheets="@../css/style.css" text="Registrar" textFill="#cacac9">
+                  <JFXButton fx:id="registroBtn" onAction="#registrarQuerellante" prefHeight="70.0" prefWidth="800.0" ripplerFill="#3b3d4d" styleClass="jfx-button-main-style" stylesheets="@../css/style.css" text="Registrar" textFill="#cacac9">
                      <font>
                         <Font name="Lato-Light" size="28.0" />
                      </font>
@@ -91,6 +91,17 @@
                   <Insets bottom="8.0" />
                </padding>
             </JFXButton>
+            <AnchorPane fx:id="exitoBanner" layoutX="199.0" layoutY="152.0" prefHeight="245.0" prefWidth="387.0" styleClass="banner">
+               <children>
+                  <Label fx:id="exitoLabel" layoutX="41.0" layoutY="103.0" text="Se registro exitosamente" textFill="#3b3d4d">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIconView fill="#3b3d4d" glyphName="CHECK_CIRCLE" layoutX="168.0" layoutY="81.0" size="60" />
+                  <JFXButton fx:id="btnAceptar" layoutX="142.0" layoutY="174.0" onAction="#exitSuccessBanner" prefHeight="40.0" prefWidth="104.0" styleClass="btnAceptar" text="Aceptar" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
