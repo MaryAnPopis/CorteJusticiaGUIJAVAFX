@@ -33,30 +33,41 @@ public class RegistroJuezController implements Initializable {
 
     @FXML
     private AnchorPane exitoBanner;
-
+    /**
+     * Registra el juez
+     * @param event 
+     */
     @FXML
     void registrarJuez(ActionEvent event) {
 
-        if (!Validacion.passMatch(confirmPass, passwordField, errorLabelNoMatch) && !isEmptyInput()) {
+        if (!Validacion.isPasswordCorrect(confirmPass, passwordField, errorLabelNoMatch) && !isEmptyInput()) {
 
             errorLabelFalse();
-            rigthValidationBunk();
-            sucessBanner();
+            turnGreenInput();
+            Validacion.sucessBanner(exitoBanner, exitoLabel);
         } else {
-            redInputs();
-            Validacion.passMatch(confirmPass, passwordField, errorLabelNoMatch);
+            styleInputError();
+            Validacion.isPasswordCorrect(confirmPass, passwordField, errorLabelNoMatch);
 
         }
 
     }
     
+    
+    /**
+     * Cierra el alert de succes
+     * @param event boton para cerra el alert
+     */
     @FXML
     void quitExitBanner(ActionEvent event) {
         
         FXUtils.fadeOutBanner(exitoBanner);
-
     }
-
+    
+    
+    /**
+     * Set los label a false para que no se vean
+     */
     void errorLabelFalse() {
         errorLabelNombre.setVisible(false);
         errorLabelApellido.setVisible(false);
@@ -68,10 +79,12 @@ public class RegistroJuezController implements Initializable {
         errorLabelCedula.setVisible(false);
         errorLabelContrasenna2.setVisible(false);
     }
+    
+    
     /**
-     * 
+     * Agrega estilos de color verde al los input
      */
-    void rigthValidationBunk() {
+    void turnGreenInput() {
         Validacion.greenInputTextField(nameField);
         Validacion.greenInputTextField(surnameField);
         Validacion.greenInputTextField(phoneNumField);
@@ -80,22 +93,15 @@ public class RegistroJuezController implements Initializable {
         Validacion.greenInputTextField(cedulaField);
         Validacion.greenInputPasswordField(passwordField);
         Validacion.greenInputPasswordField(confirmPass);
-
-        
+  
     }
-    /**
-     * Alerta de exito al registrar
-     */
-    void sucessBanner(){
-        exitoBanner.setVisible(true);
-        FXUtils.fadeInBanner(exitoBanner);
-        exitoLabel.setVisible(true);
-    }
+       
+    
     /**
      * Añade un color y label al input dependiendo si
      * esta lleno o vacio
      */
-    void redInputs() {
+    void styleInputError() {
 
         String nombre = nameField.getText();
         String apellido1 = surnameField.getText();
@@ -173,22 +179,9 @@ public class RegistroJuezController implements Initializable {
             errorLabelCedula.setVisible(false);
         }
 
-        if (contrasenna.isEmpty()) {
-            Validacion.redInputPasswordField(passwordField);
-            errorLabelContrasenna.setVisible(true);
-        } else {
-            Validacion.greenInputPasswordField(passwordField);
-            errorLabelContrasenna.setVisible(false);
-        }
-
-        if (contrasenna2.isEmpty()) {
-            Validacion.redInputPasswordField(confirmPass);
-            errorLabelContrasenna2.setVisible(true);
-        } else {
-            Validacion.greenInputPasswordField(confirmPass);
-            errorLabelContrasenna2.setVisible(false);
-        }
     }
+    
+    
     /**
      * Este metodo revisa los inputs vacios
      * @return boolean true si hay algun input en blanco

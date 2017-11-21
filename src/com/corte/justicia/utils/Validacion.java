@@ -3,6 +3,7 @@ package com.corte.justicia.utils;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * @version 1.0 noviembre 14, 2017
@@ -36,7 +37,16 @@ public class Validacion {
                 + "-fx-prompt-text-fill: #e74c3c; ");
     }
     
-    public static boolean passMatch(JFXPasswordField confirmPass, JFXPasswordField passwordField, Label errorLabelNoMatch) {
+    /**
+     * Alert de exito al registrar
+     */
+    public static void sucessBanner(AnchorPane exitoBanner, Label exitoLabel){
+        exitoBanner.setVisible(true);
+        FXUtils.fadeInBanner(exitoBanner);
+        exitoLabel.setVisible(true);
+    }
+    
+    public static boolean isPasswordCorrect(JFXPasswordField confirmPass, JFXPasswordField passwordField, Label errorLabelNoMatch) {
         String contrasenna2 = confirmPass.getText();
         String contrasenna = passwordField.getText();
 
