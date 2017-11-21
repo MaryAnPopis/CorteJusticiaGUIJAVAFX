@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="430.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.corte.justicia.controller.MainController">
+   <children>
+      <AnchorPane layoutX="5.0" layoutY="5.0" prefHeight="400.0" prefWidth="800.0" styleClass="mainBackground" stylesheets="@../css/style.css">
+         <children>
+            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="773.0" layoutY="1.0" onMouseClicked="#exitApp" prefHeight="17.0" prefWidth="26.0" ripplerFill="#3b3d4d">
+               <graphic>
+                  <FontAwesomeIconView fill="#e74c3c" glyphName="CLOSE" size="21" />
+               </graphic>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </JFXButton>
+            <Label layoutX="225.0" layoutY="14.0" text="Corte de Justicia" textAlignment="CENTER" textFill="#a6bd55">
+               <font>
+                  <Font name="Lato Regular" size="48.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c4e5c" height="2.0" layoutY="98.0" stroke="#4c4e5c" strokeType="INSIDE" width="800.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c4e5c" height="300.0" layoutX="260.0" layoutY="100.0" stroke="#4c4e5c" strokeType="INSIDE" width="2.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c4e5c" height="300.0" layoutX="539.0" layoutY="100.0" stroke="#4c4e5c" strokeType="INSIDE" width="2.0" />
+            <JFXButton fx:id="juezBtn" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutY="100.0" onMouseClicked="#goJuezLogin" prefHeight="300.0" prefWidth="260.0" ripplerFill="#3b3d4d" styleClass="bigBtns" textOverrun="CLIP">
+               <graphic>
+                  <ImageView fitHeight="194.0" fitWidth="181.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/auction.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="68.0" />
+               </padding>
+            </JFXButton>
+            <Label layoutX="76.0" layoutY="329.0" text="Juez" textFill="#a9a9af">
+               <font>
+                  <Font name="Lato-Light" size="34.0" />
+               </font>
+            </Label>
+            <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="261.0" layoutY="100.0" onMouseClicked="#goSecretarioLogin" prefHeight="300.0" prefWidth="278.0" ripplerFill="#3b3d4d" styleClass="bigBtns" textOverrun="CLIP">
+               <graphic>
+                  <ImageView fitHeight="194.0" fitWidth="181.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/balance.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="68.0" />
+               </padding>
+            </JFXButton>
+            <Label layoutX="343.0" layoutY="327.0" text="Secretario" textFill="#a9a9af">
+               <font>
+                  <Font name="Lato-Light" size="29.0" />
+               </font>
+            </Label>
+            <Label layoutX="343.0" layoutY="350.0" text="de la corte" textFill="#a9a9af">
+               <font>
+                  <Font name="Lato-Light" size="27.0" />
+               </font>
+            </Label>
+            <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="541.0" layoutY="100.0" onMouseClicked="#goQuerellanteLogin" prefHeight="300.0" prefWidth="259.0" ripplerFill="#3b3d4d" styleClass="bigBtns" textOverrun="CLIP">
+               <graphic>
+                  <ImageView fitHeight="194.0" fitWidth="181.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/briefcase.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="68.0" />
+               </padding>
+            </JFXButton>
+            <Label layoutX="594.0" layoutY="331.0" text="Querellante" textFill="#a9a9af">
+               <font>
+                  <Font name="Lato-Light" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

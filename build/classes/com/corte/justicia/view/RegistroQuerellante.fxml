@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="502.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.corte.justicia.controller.RegistroQuerellanteController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="470.0" prefWidth="800.0" styleClass="mainBackground" stylesheets="@../css/style.css">
+         <children>
+            <ImageView fitHeight="276.0" fitWidth="285.0" layoutX="254.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/briefcase-overlay-color.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="213.0" layoutY="37.0" text="Registro de querellante" textFill="#a6bd55">
+               <font>
+                  <Font name="Lato-Light" size="36.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="backArrow" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutY="7.0" onMouseClicked="#goBack" prefHeight="15.0" prefWidth="26.0" ripplerFill="#3b3d4d">
+               <graphic>
+                  <FontAwesomeIconView fill="#cacac9" glyphName="ARROW_LEFT" size="21" />
+               </graphic>
+            </JFXButton>
+            <VBox layoutX="37.0" layoutY="83.0" prefHeight="310.0" prefWidth="330.0">
+               <children>
+                  <JFXTextField fx:id="nameField" focusColor="#a6bd55" labelFloat="true" promptText="Nombre" stylesheets="@../css/style.css" unFocusColor="#a4a4a4">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="errorLabelNombre" styleClass="wrong" text="No puedes dejar este campo en blanco." />
+                  <JFXTextField fx:id="surnameField" focusColor="#a6bd55" labelFloat="true" promptText="Primer apellido" stylesheets="@../css/style.css" unFocusColor="#a4a4a4">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="errorLabelApellido" styleClass="wrong" text="No puedes dejar este campo en blanco." />
+                  <JFXTextField fx:id="secondSurnameField" focusColor="#a6bd55" labelFloat="true" layoutX="10.0" layoutY="110.0" promptText="Segundo apellido" stylesheets="@../css/style.css" unFocusColor="#a4a4a4">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="phoneNumField" focusColor="#a6bd55" labelFloat="true" promptText="Número de teléfono" stylesheets="@../css/style.css" unFocusColor="#a4a4a4">
+                     <VBox.margin>
+                        <Insets top="42.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="errorLabelTelefono" styleClass="wrong" text="No puedes dejar este campo en blanco." />
+               </children>
+            </VBox>
+            <VBox layoutX="417.0" layoutY="113.0" prefHeight="322.0" prefWidth="330.0">
+               <children>
+                  <JFXTextField fx:id="direccionField" focusColor="#a6bd55" labelFloat="true" promptText="Dirección" stylesheets="@../css/style.css" unFocusColor="#a4a4a4">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="errorLabelDireccion" styleClass="wrong" text="No puedes dejar este campo en blanco." />
+                  <JFXTextField fx:id="cedulaField" focusColor="#a6bd55" labelFloat="true" layoutX="10.0" layoutY="40.0" promptText="Número de cédula" stylesheets="@../css/style.css" unFocusColor="#a4a4a4">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="errorLabelCedula" layoutX="10.0" layoutY="96.0" styleClass="wrong" text="No puedes dejar este campo en blanco." />
+               </children>
+            </VBox>
+            <HBox layoutY="415.0" prefHeight="36.0" prefWidth="800.0">
+               <children>
+                  <JFXButton prefHeight="70.0" prefWidth="800.0" ripplerFill="#3b3d4d" styleClass="jfx-button-main-style" stylesheets="@../css/style.css" text="Registrar" textFill="#cacac9">
+                     <font>
+                        <Font name="Lato-Light" size="28.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <JFXButton alignment="TOP_CENTER" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="773.0" layoutY="4.0" onMouseClicked="#exitApp" prefHeight="24.0" prefWidth="26.0" ripplerFill="#3b3d4d">
+               <graphic>
+                  <FontAwesomeIconView fill="#e74c3c" glyphName="CLOSE" size="21" />
+               </graphic>
+               <padding>
+                  <Insets bottom="8.0" />
+               </padding>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

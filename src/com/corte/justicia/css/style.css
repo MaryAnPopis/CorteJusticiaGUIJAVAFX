@@ -1,0 +1,98 @@
+@font-face {
+    font-family: Lato-Light;
+    src: url('Lato-Light.ttf');
+}
+
+@font-face{
+    font-family: Lato-Regular;
+    src: url('Lato-Regular.ttf');
+}
+
+
+.mainBackground{
+    -fx-background-color: #3b3d4d ;
+    -fx-background-radius: 5px;
+    /*-fx-effect: dropshadow(three-pass-box, derive(black, 17%), 10, 0, 2, 2);*/ 
+}
+
+.exitBtn{
+    -fx-cursor: hand;
+}
+
+/*Estilos de botones*/
+.jfx-button{
+    -fx-cursor: hand;
+}
+
+
+.jfx-button-main-style{
+    -fx-border-radius: 0px 0px 5px 5px;
+    -fx-background-color: #51526a;
+}
+
+
+.jfx-button-main-style:hover{
+    -fx-background-color: #a4bb55;
+    -fx-text-fill: #3b3d4d;
+}
+
+/*Botonnes del main*/
+.bigBtns:hover{
+    -fx-background-color: #51526a;
+}
+
+/*Login botones*/
+#loginBtn{
+    -fx-border-radius: 0px 0px 5px 5px;
+    -fx-background-color: #51526a;
+}
+
+#loginBtn:hover{
+    -fx-background-color: #a4bb55;
+    -fx-text-fill: #3b3d4d;
+}
+
+/*Banner de exito*/
+.banner{
+    -fx-background-color:#a6bd55; 
+    -fx-background-radius: 5px;
+    /*-fx-effect: dropshadow(three-pass-box, derive(black, 27%), 10, 0, 4, 4);*/
+}
+
+.btnAceptar{
+    -fx-background-color:#3b3d4d; 
+    -fx-background-radius: 5px;
+    -fx-text-fill: #a6bd55;
+    -fx-font-size: 14px ;
+}
+
+
+/*Input styles*/
+
+.jfx-text-field{
+    -fx-font-family: 'Lato-Regular', Arial, sans-serif;
+    -fx-text-inner-color: #cacac9;
+    -fx-prompt-text-fill: #cacac9;
+    -fx-font-size: 14px ;
+    -fx-focus-color: #a6bd55;
+    -fx-unfocus-color: #a4a4a4;
+}
+
+.jfx-password-field{
+    -fx-font-family: 'Lato-Regular', Arial, sans-serif;
+    -fx-text-inner-color: #cacac9;
+    -fx-prompt-text-fill: #cacac9;
+    -fx-font-size: 14px ;
+}
+
+/*Validaciones*/
+.wrong{
+    -fx-text-fill: #ef5350;
+    -fx-font-family: 'Lato-Regular', Arial, sans-serif;
+    -fx-font-size: 14px;
+}
+
+/*.jfx-text-field .error{
+    -jfx-unfocus-color:#e74c3c; 
+    -jfx-focus-color: #e74c3c
+}*/
