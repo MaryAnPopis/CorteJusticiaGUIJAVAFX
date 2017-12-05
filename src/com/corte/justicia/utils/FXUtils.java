@@ -1,6 +1,4 @@
-
 package com.corte.justicia.utils;
-
 
 import javafx.animation.FadeTransition;
 import javafx.event.EventHandler;
@@ -18,28 +16,30 @@ import javafx.util.Duration;
  * @author Mariam Domínguez
  */
 public class FXUtils {
+
     //init xy offsets
     private static double xOffset = 0;
     private static double yOffset = 0;
-    
+
     /**
-     * Cambia el icono default de java
-     * por uno modificado
+     * Cambia el icono default de java por uno modificado
+     * en una ruta especificada
+     *
      * @param s current stage
      */
-    public static void displayIcon(Stage s){
+    public static void displayIcon(Stage s) {
         Image icon = new Image("/com/corte/justicia/image/icon.png");
         s.getIcons().add(icon);
     }
-    
+
     /**
-     * Hace que la ventana actual
-     * pueda moverse
-     * @param root 
-     * @param s 
+     * Hace que la ventana actual pueda moverse
+     *
+     * @param root
+     * @param s
      */
-    public static void makeDraggableWindow(Parent root, Stage s){
-        
+    public static void makeDraggableWindow(Parent root, Stage s) {
+
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -47,7 +47,7 @@ public class FXUtils {
                 yOffset = event.getSceneY();
             }
         });
-        
+
         root.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -57,36 +57,52 @@ public class FXUtils {
         });
     }
     
+    /**
+     * Implementa la clase FadeTransition en un AnchorPane
+     * haciendo que el AchorPane aparezca suavemente
+     * @param banner 
+     */
     public static void fadeInBanner(AnchorPane banner) {
         FadeTransition fadeIn = new FadeTransition(Duration.millis(1900), banner);
         fadeIn.setFromValue(0);
         fadeIn.setToValue(1);
-//        fadeIn.setOnFinished(e -> fadeOutBanner(banner));
         fadeIn.play();
     }
     
+    /**
+     * Implementa la clase FadeTransition en un AnchorPane
+     * haciendo que el AchorPane desaparezca suavemente
+     * @param banner 
+     */
     public static void fadeOutBanner(AnchorPane banner) {
-     FadeTransition fadeOut = new FadeTransition(Duration.millis(1200), banner);
-     fadeOut.setFromValue(1);
-     fadeOut.setToValue(0);
-     fadeOut.play();
+        FadeTransition fadeOut = new FadeTransition(Duration.millis(1200), banner);
+        fadeOut.setFromValue(1);
+        fadeOut.setToValue(0);
+        fadeOut.play();
     }
     
-    
+    /**
+     * Implementa la clase FadeTransition en un Label
+     * haciendo que el label arezca suavemente
+     * @param lab 
+     */
     public static void fadeInLabel(Label lab) {
         FadeTransition fadeIn = new FadeTransition(Duration.millis(1900), lab);
         fadeIn.setFromValue(0);
         fadeIn.setToValue(1);
-        fadeIn.setOnFinished(e -> fadeOutLabel(lab));
         fadeIn.play();
     }
     
+    /**
+     * Implementa la clase FadeTransition en un Label
+     * haciendo que el label desarezca suavemente
+     * @param lab 
+     */
     public static void fadeOutLabel(Label lab) {
-     FadeTransition fadeOut = new FadeTransition(Duration.millis(1200), lab);
-     fadeOut.setFromValue(1);
-     fadeOut.setToValue(0);
-     fadeOut.play();
+        FadeTransition fadeOut = new FadeTransition(Duration.millis(1200), lab);
+        fadeOut.setFromValue(1);
+        fadeOut.setToValue(0);
+        fadeOut.play();
     }
-    
-    
+
 }

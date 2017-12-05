@@ -21,6 +21,11 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+/**
+ *
+ * @version 1.0 noviembre 21, 2017
+ * @author Mariam Domínguez
+ */
 public class RegistroSecretarioController implements Initializable {
 
     @FXML

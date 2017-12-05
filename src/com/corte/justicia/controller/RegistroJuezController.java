@@ -13,7 +13,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-
+/**
+ *
+ * @version 1.0 noviembre 21, 2017
+ * @author Mariam Domínguez
+ */
 public class RegistroJuezController implements Initializable {
 
     @FXML
@@ -219,7 +223,6 @@ public class RegistroJuezController implements Initializable {
         exitoLabel.setVisible(false);
         exitoBanner.setVisible(false);
         registroBtn.setDefaultButton(true);
-        btnAceptar.setDefaultButton(true);
     }
     /**
      * Cierra la aplicacion

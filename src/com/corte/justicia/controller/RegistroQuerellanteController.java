@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.corte.justicia.controller;
 
 import com.corte.justicia.utils.FXUtils;
@@ -18,9 +14,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
- * FXML Controller class
  *
- * @author Mari
+ * @version 1.0 noviembre 21, 2017
+ * @author Mariam Domínguez
  */
 public class RegistroQuerellanteController implements Initializable {
 
