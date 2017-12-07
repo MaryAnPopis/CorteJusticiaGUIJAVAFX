@@ -58,6 +58,8 @@ public class Validacion {
     
     /**
      * Muestra un Alert de exito al registrar
+     * @param exitoBanner banner verde que se muestra si la operacion fue exitosa
+     * @param exitoLabel label en el banner verde
      */
     public static void sucessBanner(AnchorPane exitoBanner, Label exitoLabel){
         exitoBanner.setVisible(true);

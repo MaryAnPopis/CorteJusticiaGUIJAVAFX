@@ -22,7 +22,7 @@ public class CorteDeJusticiaGUI extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/RegistroQuerellante.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/Main.fxml"));
         stage.initStyle(StageStyle.TRANSPARENT);
         root.setStyle("-fx-background-color: transparent;");
         

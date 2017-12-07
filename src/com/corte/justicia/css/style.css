@@ -8,6 +8,15 @@
     src: url('Lato-Regular.ttf');
 }
 
+/*
+Verde #a4bb55
+Azul main #3b3d4d
+azul suave #51526a
+rosa #dd6264
+rosa suave #eb9394
+	
+
+*/
 
 .mainBackground{
     -fx-background-color: #3b3d4d ;
@@ -96,3 +105,39 @@
     -jfx-unfocus-color:#e74c3c; 
     -jfx-focus-color: #e74c3c
 }*/
+
+
+/* Perfil del secretario */
+
+.perfilSecretario{
+    -fx-background-color : #3b3d4d;
+    /*-fx-background-color : red;*/
+    -fx-background-radius:  0px 0px 5px 5px;
+}
+
+.jfx-button-secretario{
+    -fx-border-radius: 10px;
+    -fx-background-color: #51526a;
+}
+
+
+.jfx-button-secretario:hover{
+    /*    -fx-graphic: url("../image/auction-overlay-color.png");
+        -fx-min-width:24px;
+        -fx-max-height:24px;*/
+    -fx-text-fill: #eb9394;
+}
+/*cambia el color del header del tabpane*/
+.jfx-tab-pane .tab-header-background {
+    -fx-background-color:  #51526a ;
+
+}
+
+/*cambiar el color de texto del tab seleccionado*/
+.jfx-tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #dd6264;
+}
+/*Cambiar el color de la linea seleccionada*/
+.jfx-tab-pane .tab-selected-line {
+    -fx-background-color: #dd6264;
+}
