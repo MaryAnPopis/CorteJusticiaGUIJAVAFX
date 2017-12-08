@@ -7,8 +7,10 @@ package com.corte.justicia.controller;
 
 import com.corte.justicia.utils.FXUtils;
 import com.jfoenix.controls.JFXButton;
+import gestor.GestorSecretario;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +22,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import objetos.Secretario;
 
 /**
  * Vista del main
@@ -81,7 +84,8 @@ public class MainController implements Initializable {
      * @throws IOException
      */
     @FXML
-    void openSecretarioLogin() throws IOException {
+    void openSecretarioLogin() throws IOException, Exception {
+
         Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/SecretarioLogin.fxml"));
         Stage stage = new Stage();
         stage.initStyle(StageStyle.TRANSPARENT);
@@ -97,8 +101,27 @@ public class MainController implements Initializable {
         scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
+
     }
-    
+
+    void registroSecretario() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/registroSecretario.fxml"));
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        root.setStyle("-fx-background-color: transparent;");
+
+        // set icon
+        FXUtils.displayIcon(stage);
+
+        //set draggable window
+        FXUtils.makeDraggableWindow(root, stage);
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     /**
      * Abre la vista del login del querellante
      *
@@ -122,7 +145,7 @@ public class MainController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    
+
     /**
      * Cierra la ventana actual
      */
@@ -139,9 +162,17 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void goSecretarioLogin(MouseEvent event) throws IOException {
-        closeCurrentWindow();
-        openSecretarioLogin();
+    void goSecretarioLogin(MouseEvent event) throws IOException, Exception {
+        GestorSecretario gestor = new GestorSecretario();
+
+        ArrayList<Secretario> lista = gestor.listarSecretario();
+        System.out.println(lista.size());
+        if (lista.isEmpty()) {
+            registroSecretario();
+        } else {
+            closeCurrentWindow();
+            openSecretarioLogin();
+        }
 
     }
 

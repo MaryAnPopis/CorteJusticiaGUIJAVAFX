@@ -1,6 +1,6 @@
 package com.corte.justicia.controller;
 
-import Gestor.GestorJuez;
+import gestor.GestorJuez;
 import com.corte.justicia.utils.FXUtils;
 import com.corte.justicia.utils.Validacion;
 import com.jfoenix.controls.JFXButton;

@@ -1,4 +1,3 @@
-
 package com.corte.justicia.controller;
 
 import com.corte.justicia.utils.FXUtils;
@@ -6,8 +5,11 @@ import com.corte.justicia.utils.Validacion;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
+import gestor.GestorSecretario;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +22,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import objetos.Secretario;
 
 /**
  * FXML Controller class
@@ -28,7 +31,7 @@ import javafx.stage.StageStyle;
  */
 public class SecretarioLoginController implements Initializable {
 
-      @FXML
+    @FXML
     private JFXButton backArrow;
 
     @FXML
@@ -39,10 +42,9 @@ public class SecretarioLoginController implements Initializable {
 
     @FXML
     private JFXPasswordField password;
-    
+
     @FXML
     private JFXButton logInBtn;
-    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -52,8 +54,6 @@ public class SecretarioLoginController implements Initializable {
         //that receives a keyboard VK_ENTER press, if no other node in the scene consumes it.
         logInBtn.setDefaultButton(true);
     }
-    
-    
 
     /**
      * Login del juez
@@ -61,26 +61,29 @@ public class SecretarioLoginController implements Initializable {
      * @param event tipo ActionEvent
      */
     @FXML
-    void loginJuez(ActionEvent event) throws IOException {
+    void loginJuez(ActionEvent event) throws IOException, Exception, SQLServerException {
         String username = this.usuario.getText();
         String contrasenna = this.password.getText();
 
-        if (username.equals("admin") && contrasenna.equals("admin")) {
+        GestorSecretario gestor = new GestorSecretario();
+
+        if (gestor.inicioSesion(username, contrasenna) != null) {
             errorLabel.setVisible(false);
             Validacion.greenInputTextField(usuario);
             Validacion.greenInputPasswordField(password);
             irPerfilSecretario();
             closeCurrentWindow();
-        }else {
+        } else {
             Validacion.redInputTextField(usuario);
             Validacion.redInputPasswordField(password);
             errorLabel.setVisible(true);
 
         }
-        
+
     }
+
     
-    void irPerfilSecretario() throws IOException{
+    void irPerfilSecretario() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/PerfilSecretario.fxml"));
         Stage stage = new Stage();
         stage.initStyle(StageStyle.TRANSPARENT);
@@ -151,6 +154,6 @@ public class SecretarioLoginController implements Initializable {
     public void closeCurrentWindow() {
         Stage stage = (Stage) backArrow.getScene().getWindow();
         stage.close();
-    }  
-    
+    }
+
 }

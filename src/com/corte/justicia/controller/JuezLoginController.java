@@ -1,12 +1,12 @@
 package com.corte.justicia.controller;
 
+import gestor.GestorJuez;
 import com.corte.justicia.utils.FXUtils;
 import com.corte.justicia.utils.Validacion;
 import com.jfoenix.controls.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,13 +58,16 @@ public class JuezLoginController implements Initializable {
      * Login del juez
      *
      * @param event tipo ActionEvent
+     * @throws java.io.IOException
      */
     @FXML
-    void loginJuez(ActionEvent event) throws IOException {
+    public void loginJuez(ActionEvent event) throws IOException, Exception {
         String username = this.usuario.getText();
         String contrasenna = this.password.getText();
+        
+        GestorJuez juez = new GestorJuez();
 
-        if (username.equals("admin") && contrasenna.equals("admin")) {
+        if (juez.inicioSesion(username, contrasenna) != null) {
             errorLabel.setVisible(false);
             Validacion.greenInputTextField(usuario);
             Validacion.greenInputPasswordField(password);
@@ -78,7 +81,6 @@ public class JuezLoginController implements Initializable {
         }
         
     }
-   
     
     void irPerfilJuez() throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/PerfilJuez.fxml"));

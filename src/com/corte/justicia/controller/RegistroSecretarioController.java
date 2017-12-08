@@ -5,8 +5,10 @@ import com.corte.justicia.utils.Validacion;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import gestor.GestorSecretario;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,16 +51,29 @@ public class RegistroSecretarioController implements Initializable {
      * @param event 
      */
     @FXML
-    void registrarSecretario(ActionEvent event) {
+    void registrarSecretario(ActionEvent event) throws SQLException, Exception {
+        
+        String nombre, apellido1, apellid2, telefono, usuario, clave;
+        
+        nombre = this.nameField.getText();
+        apellido1 = this.surnameField.getText();
+        apellid2 = this.secondSurnameField.getText();
+        telefono = this.phoneNumField.getText();
+        usuario = this.usernameField.getText();        
+        clave = this.confirmPass.getText();
+            
+        GestorSecretario gestor = new GestorSecretario();
+        
         if (!Validacion.isPasswordCorrect(confirmPass, passwordField, errorLabelNoMatch) && !isEmptyInput()) {
-            System.out.println("bien");
+            gestor.registrarSecretario(nombre, apellido1, apellid2, telefono, usuario, clave);
             errorLabelFalse();
             turnGreenInput();
             Validacion.sucessBanner(exitoBanner, exitoLabel);
+            closeCurrentWindow();
         } else {
             styleInputError();
             Validacion.isPasswordCorrect(confirmPass, passwordField, errorLabelNoMatch);
-            System.out.println("error");
+//            System.out.println("error");
         }
     }
     
