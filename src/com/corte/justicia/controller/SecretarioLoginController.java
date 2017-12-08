@@ -65,14 +65,14 @@ public class SecretarioLoginController implements Initializable {
         String contrasenna = this.password.getText();
 
         GestorSecretario gestor = new GestorSecretario();
-
+        PerfilSecretarioController secretario = new PerfilSecretarioController();
         if (gestor.inicioSesion(username, contrasenna) != null) {
             
             errorLabel.setVisible(false);
             
             Validacion.greenInputTextField(usuario);
             Validacion.greenInputPasswordField(password);
-            
+            secretario.setUsername(username);
             irPerfilSecretario();
             closeCurrentWindow();
         } else {

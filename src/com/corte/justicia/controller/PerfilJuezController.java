@@ -29,6 +29,8 @@ public class PerfilJuezController implements Initializable {
     
     @FXML
     private Label juezLabel;
+    
+    private static String username;
 
     @FXML
     void cerrarSesion(MouseEvent event) throws IOException {
@@ -64,13 +66,18 @@ public class PerfilJuezController implements Initializable {
         stage.close();
     }  
     
+    public void setUsername(String username){
+        this.username = username;
+    }
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        juezLabel.setText("Mariam");
+        juezLabel.setText(this.username);
     }
 
 }

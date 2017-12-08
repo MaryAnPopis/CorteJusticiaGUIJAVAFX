@@ -66,12 +66,15 @@ public class JuezLoginController implements Initializable {
         String contrasenna = this.password.getText();
         
         GestorJuez juez = new GestorJuez();
+        PerfilJuezController pJuez = new PerfilJuezController();
 
         if (juez.inicioSesion(username, contrasenna) != null) {
             errorLabel.setVisible(false);
             Validacion.greenInputTextField(usuario);
             Validacion.greenInputPasswordField(password);
+            pJuez.setUsername(username);
             irPerfilJuez();
+            
             closeCurrentWindow();
         }else {
             Validacion.redInputTextField(usuario);
@@ -87,7 +90,7 @@ public class JuezLoginController implements Initializable {
         Stage stage = new Stage();
         stage.initStyle(StageStyle.TRANSPARENT);
         root.setStyle("-fx-background-color: transparent;");
-
+        
         // set icon
         FXUtils.displayIcon(stage);
 

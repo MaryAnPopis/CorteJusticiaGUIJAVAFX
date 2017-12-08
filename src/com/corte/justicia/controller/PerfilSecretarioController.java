@@ -39,7 +39,9 @@ public class PerfilSecretarioController implements Initializable {
 
     @FXML
     private Label nombreSecretario;
-
+    
+    private static String username;
+    
     @FXML
     void exitApp(MouseEvent event) {
         System.exit(0);
@@ -95,13 +97,17 @@ public class PerfilSecretarioController implements Initializable {
         Stage stage = (Stage) btnCasoRegistro.getScene().getWindow();
         stage.close();
     }  
+    
+    public void setUsername(String username){
+        this.username = username;
+    }
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        nombreSecretario.setText("Mariam");
+        nombreSecretario.setText(this.username);
     }
 
 }

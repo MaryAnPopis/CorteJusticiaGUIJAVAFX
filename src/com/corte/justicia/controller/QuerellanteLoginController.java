@@ -8,8 +8,8 @@ package com.corte.justicia.controller;
 import com.corte.justicia.utils.FXUtils;
 import com.corte.justicia.utils.Validacion;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import gestor.GestorQuerellante;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -64,11 +64,12 @@ public class QuerellanteLoginController implements Initializable {
      * @param event tipo ActionEvent
      */
     @FXML
-    void loginJuez(ActionEvent event) throws IOException {
+    void loginJuez(ActionEvent event) throws IOException, Exception {
         String username = this.usuario.getText();
+        
+        GestorQuerellante gestor = new GestorQuerellante();
 
-
-        if (username.equals("admin")) {
+        if (gestor.inicioSesion(username) != null ) {
             errorLabel.setVisible(false);
             Validacion.greenInputTextField(usuario);
  
