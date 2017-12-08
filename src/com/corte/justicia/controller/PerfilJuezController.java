@@ -6,13 +6,12 @@
 package com.corte.justicia.controller;
 
 import com.corte.justicia.utils.FXUtils;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
-import com.jfoenix.controls.JFXButton;
-import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -26,45 +25,15 @@ import javafx.stage.StageStyle;
  *
  * @author Mari
  */
-public class PerfilSecretarioController implements Initializable {
-
-    @FXML
-    private JFXButton btnJuezRegistro;
-
-    @FXML
-    private JFXButton btnQuereRegistro;
-
-    @FXML
-    private JFXButton btnCasoRegistro;
-
-    @FXML
-    private Label nombreSecretario;
-
-    @FXML
-    void exitApp(MouseEvent event) {
-        System.exit(0);
-    }
-
-    @FXML
-    void irCasoRegistro(MouseEvent event) throws IOException {
-
-    }
-
-    @FXML
-    void irJuezRegistro(MouseEvent event) throws IOException {
-        String path = "RegistroJuez";
-        abrirView(path);
-    }
-
-    @FXML
-    void irQuerellanteRegistro(MouseEvent event) throws IOException {
-        String path = "RegistroQuerellante";
-        abrirView(path);
-    }
+public class PerfilJuezController implements Initializable {
     
-    void abrirView(String path) throws IOException{
+    @FXML
+    private Label juezLabel;
+
+    @FXML
+    void cerrarSesion(MouseEvent event) throws IOException {
         closeCurrentWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/"+path+".fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/Main.fxml"));
         Stage stage = new Stage();
         stage.initStyle(StageStyle.TRANSPARENT);
         root.setStyle("-fx-background-color: transparent;");
@@ -82,26 +51,26 @@ public class PerfilSecretarioController implements Initializable {
     }
     
     @FXML
-    void cerrarSesion(MouseEvent event) throws IOException {
-        String path = "Main";
-        abrirView(path);
+    void exitApp(MouseEvent event) {
+        System.exit(0);
     }
     
-    /**
+     /**
      * Cierra la vista/ventana actual
      */
     @FXML
     public void closeCurrentWindow() {
-        Stage stage = (Stage) btnCasoRegistro.getScene().getWindow();
+        Stage stage = (Stage) juezLabel.getScene().getWindow();
         stage.close();
     }  
+    
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        nombreSecretario.setText("Mariam");
+        juezLabel.setText("Mariam");
     }
 
 }

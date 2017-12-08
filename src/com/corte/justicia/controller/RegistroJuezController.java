@@ -1,5 +1,6 @@
 package com.corte.justicia.controller;
 
+import Gestor.GestorJuez;
 import com.corte.justicia.utils.FXUtils;
 import com.corte.justicia.utils.Validacion;
 import com.jfoenix.controls.JFXButton;
@@ -7,6 +8,7 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -51,10 +53,22 @@ public class RegistroJuezController implements Initializable {
      * @param event 
      */
     @FXML
-    void registrarJuez(ActionEvent event) {
+    void registrarJuez(ActionEvent event) throws SQLException, Exception {
+        
+        GestorJuez prueba = new GestorJuez();
+        String nombre, apellido1, apellido2, cedula, telefono, numero_sala, usuario, clave;
+        nombre = this.nameField.getText();
+        apellido1 = this.surnameField.getText();
+        apellido2 = this.secondSurnameField.getText();
+        cedula = this.cedulaField.getText();
+        telefono = this.phoneNumField.getText();
+        numero_sala = this.salaField.getText();
+        usuario = this.usernameField.getText();
+        clave = this.passwordField.getText();
+
 
         if (!Validacion.isPasswordCorrect(confirmPass, passwordField, errorLabelNoMatch) && !isEmptyInput()) {
-
+            prueba.registrarJuez(nombre, apellido1, apellido2, cedula, telefono, numero_sala, usuario, clave);
             errorLabelFalse();
             turnGreenInput();
             Validacion.sucessBanner(exitoBanner, exitoLabel);

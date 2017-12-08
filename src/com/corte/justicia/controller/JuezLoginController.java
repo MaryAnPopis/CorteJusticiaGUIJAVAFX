@@ -68,6 +68,8 @@ public class JuezLoginController implements Initializable {
             errorLabel.setVisible(false);
             Validacion.greenInputTextField(usuario);
             Validacion.greenInputPasswordField(password);
+            irPerfilJuez();
+            closeCurrentWindow();
         }else {
             Validacion.redInputTextField(usuario);
             Validacion.redInputPasswordField(password);
@@ -75,6 +77,25 @@ public class JuezLoginController implements Initializable {
 
         }
         
+    }
+   
+    
+    void irPerfilJuez() throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/PerfilJuez.fxml"));
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        root.setStyle("-fx-background-color: transparent;");
+
+        // set icon
+        FXUtils.displayIcon(stage);
+
+        //set draggable window
+        FXUtils.makeDraggableWindow(root, stage);
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
     }
 
     /**

@@ -14,7 +14,7 @@ Azul main #3b3d4d
 azul suave #51526a
 rosa #dd6264
 rosa suave #eb9394
-	
+        
 
 */
 
@@ -141,3 +141,76 @@ rosa suave #eb9394
 .jfx-tab-pane .tab-selected-line {
     -fx-background-color: #dd6264;
 }
+
+/*Perfil Juez*/
+
+.table-view {
+    /*-fx-base: #3b3d4d;*/
+    -fx-control-inner-background: #51526a;
+    -fx-font-size: 11pt;
+    -fx-background-color: #51526a;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: #2c2e3a;
+    /*    -fx-size: 1;
+        -fx-border-width: 0 0 0 0;
+        -fx-border-color: 
+            transparent
+            transparent
+            derive(-fx-base, 80%) 
+            transparent;
+        -fx-border-insets: 0 10 1 0;*/
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 17pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: #d7d7d6;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+
+.table-row-cell {
+    -fx-cell-size: 40px;
+}
+
+.scroll-bar {
+    -fx-background-color: #3b3d4d;
+    -fx-padding: 0;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #b1c56d;
+}
+
+
+.table-row-cell {
+    -fx-background-color: #51526a;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #7e923a; 
+}
+.table-row-cell:selected .text {
+    -fx-fill: white ;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #7e923a;
+    -fx-cursor: hand;
+}
+
+.table-row-cell:hover:empty {
+    -fx-background-color: #7e923a;
+}
+
+
