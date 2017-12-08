@@ -166,9 +166,10 @@ public class MainController implements Initializable {
         GestorSecretario gestor = new GestorSecretario();
 
         ArrayList<Secretario> lista = gestor.listarSecretario();
-        System.out.println(lista.size());
+//        System.out.println(lista.size());
         if (lista.isEmpty()) {
             registroSecretario();
+            closeCurrentWindow();
         } else {
             closeCurrentWindow();
             openSecretarioLogin();

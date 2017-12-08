@@ -4,8 +4,10 @@ package com.corte.justicia.controller;
 import com.corte.justicia.utils.FXUtils;
 import com.corte.justicia.utils.Validacion;
 import com.jfoenix.controls.*;
+import gestor.GestorQuerellante;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,18 +49,49 @@ public class RegistroQuerellanteController implements Initializable {
      * @param event
      */
     @FXML
-    void registrarQuerellante(ActionEvent event) {
-
+    void registrarQuerellante(ActionEvent event) throws SQLException, Exception {
+        
+        String nombre, apellido1, apellid2, telefono, cedula, direccion;
+        
+        nombre = this.nameField.getText();
+        apellido1 = this.surnameField.getText();
+        apellid2 = this.secondSurnameField.getText();
+        telefono = this.phoneNumField.getText();
+        cedula = this.cedulaField.getText();
+        direccion = this.direccionField.getText();
+        
+        GestorQuerellante gestor = new GestorQuerellante();
         if (!isEmptyInput()) {
-
+            gestor.registarQuerellante(nombre, apellido1, apellid2, cedula, telefono, direccion);
             errorLabelFalse();
             turnGreenInput();
             Validacion.sucessBanner(exitoBanner, exitoLabel);
+            
         } else {
             styleInputError();
 
         }
 
+    }
+    
+    
+    void irPerfilSecretario() throws IOException{
+        closeCurrentWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/PerfilSecretario.fxml"));
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        root.setStyle("-fx-background-color: transparent;");
+
+        // set icon
+        FXUtils.displayIcon(stage);
+
+        //set draggable window
+        FXUtils.makeDraggableWindow(root, stage);
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
     }
 
     /**
@@ -157,8 +190,10 @@ public class RegistroQuerellanteController implements Initializable {
      * @param event boton para cerra el alert
      */
     @FXML
-    void exitSuccessBanner(ActionEvent event) {
+    void exitSuccessBanner(ActionEvent event) throws IOException {
         FXUtils.fadeOutBanner(exitoBanner);
+        closeCurrentWindow();
+        irPerfilSecretario();
         
     }
 

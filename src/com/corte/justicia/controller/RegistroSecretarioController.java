@@ -60,7 +60,7 @@ public class RegistroSecretarioController implements Initializable {
         apellid2 = this.secondSurnameField.getText();
         telefono = this.phoneNumField.getText();
         usuario = this.usernameField.getText();        
-        clave = this.confirmPass.getText();
+        clave = this.passwordField.getText();
             
         GestorSecretario gestor = new GestorSecretario();
         
@@ -70,6 +70,7 @@ public class RegistroSecretarioController implements Initializable {
             turnGreenInput();
             Validacion.sucessBanner(exitoBanner, exitoLabel);
             closeCurrentWindow();
+            secretarioLogin();
         } else {
             styleInputError();
             Validacion.isPasswordCorrect(confirmPass, passwordField, errorLabelNoMatch);
@@ -232,6 +233,24 @@ public class RegistroSecretarioController implements Initializable {
     @FXML
     void mainScreen() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/Main.fxml"));
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        root.setStyle("-fx-background-color: transparent;");
+
+        // set icon
+        FXUtils.displayIcon(stage);
+
+        //set draggable window
+        FXUtils.makeDraggableWindow(root, stage);
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    void secretarioLogin() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/SecretarioLogin.fxml"));
         Stage stage = new Stage();
         stage.initStyle(StageStyle.TRANSPARENT);
         root.setStyle("-fx-background-color: transparent;");

@@ -9,7 +9,6 @@ import com.microsoft.sqlserver.jdbc.SQLServerException;
 import gestor.GestorSecretario;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +21,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import objetos.Secretario;
+
 
 /**
  * FXML Controller class
@@ -68,9 +67,12 @@ public class SecretarioLoginController implements Initializable {
         GestorSecretario gestor = new GestorSecretario();
 
         if (gestor.inicioSesion(username, contrasenna) != null) {
+            
             errorLabel.setVisible(false);
+            
             Validacion.greenInputTextField(usuario);
             Validacion.greenInputPasswordField(password);
+            
             irPerfilSecretario();
             closeCurrentWindow();
         } else {

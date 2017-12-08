@@ -80,15 +80,36 @@ public class RegistroJuezController implements Initializable {
 
     }
     
+    void irPerfilSecretario() throws IOException{
+        closeCurrentWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/PerfilSecretario.fxml"));
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        root.setStyle("-fx-background-color: transparent;");
+
+        // set icon
+        FXUtils.displayIcon(stage);
+
+        //set draggable window
+        FXUtils.makeDraggableWindow(root, stage);
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
+    }
     
     /**
      * Cierra el alert de succes
      * @param event boton para cerra el alert
      */
     @FXML
-    void exitSuccessBanner(ActionEvent event) {
+    void exitSuccessBanner(ActionEvent event) throws IOException {
         
         FXUtils.fadeOutBanner(exitoBanner);
+        
+        closeCurrentWindow();
+        irPerfilSecretario();
     }
     
     
