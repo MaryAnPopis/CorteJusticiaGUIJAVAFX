@@ -68,11 +68,18 @@ public class QuerellanteLoginController implements Initializable {
         String username = this.usuario.getText();
         
         GestorQuerellante gestor = new GestorQuerellante();
-
+        PerfilQuerellanteController perfil = new PerfilQuerellanteController();
+        
+        String nombre = gestor.nombreByCedula(username);
+        
         if (gestor.inicioSesion(username) != null ) {
             errorLabel.setVisible(false);
             Validacion.greenInputTextField(usuario);
- 
+            perfil.setUsername(nombre);
+            
+            
+            irPerfilQuerellante();
+            closeCurrentWindow();
         }else {
             Validacion.redInputTextField(usuario);
             errorLabel.setVisible(true);
@@ -80,7 +87,26 @@ public class QuerellanteLoginController implements Initializable {
         }
         
     }
+        
+    
+    void irPerfilQuerellante() throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/PerfilQuerellante.fxml"));
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        root.setStyle("-fx-background-color: transparent;");
+        
+        // set icon
+        FXUtils.displayIcon(stage);
 
+        //set draggable window
+        FXUtils.makeDraggableWindow(root, stage);
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
     /**
      * Cierra la aplicacion
      *
