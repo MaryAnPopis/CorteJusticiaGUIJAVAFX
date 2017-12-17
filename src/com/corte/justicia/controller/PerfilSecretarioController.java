@@ -49,7 +49,8 @@ public class PerfilSecretarioController implements Initializable {
 
     @FXML
     void irCasoRegistro(MouseEvent event) throws IOException {
-
+        String path = "RegistroCaso";
+        abrirView(path);
     }
 
     @FXML

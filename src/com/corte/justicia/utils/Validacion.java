@@ -1,6 +1,7 @@
 package com.corte.justicia.utils;
 
 import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -20,6 +21,19 @@ public class Validacion {
         u.setStyle("-jfx-unfocus-color:#a6bd55; "
                 + "-jfx-focus-color: #a6bd55;"
                 + "-fx-prompt-text-fill: #a6bd55; ");
+    }
+    
+    
+    public static void greenInputTextAreaField(JFXTextArea u) {
+        u.setStyle("-jfx-unfocus-color:#a6bd55; "
+                + "-jfx-focus-color: #a6bd55;"
+                + "-fx-prompt-text-fill: #a6bd55; ");
+    }
+    
+    public static void redInputTextAreaField(JFXTextArea u) {
+        u.setStyle("-jfx-unfocus-color:#e74c3c;"
+                + " -jfx-focus-color: #e74c3c;"
+                + "-fx-prompt-text-fill: #e74c3c; ");
     }
     
     /**
