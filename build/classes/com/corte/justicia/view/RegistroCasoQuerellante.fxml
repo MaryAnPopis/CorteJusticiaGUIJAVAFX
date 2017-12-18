@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="569.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="com.corte.justicia.controller.RegistroCasoQuerellanteController">
+    <children>
+        <AnchorPane layoutX="13.0" layoutY="15.0" prefHeight="563.0" prefWidth="536.0" styleClass="mainBackground" stylesheets="@../css/style.css">
+            <children>
+                <ImageView fitHeight="276.0" fitWidth="285.0" layoutX="136.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../image/briefcase-overlay-color.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="170.0" layoutY="34.0" text="Registro de caso" textFill="#a6bd55">
+                    <font>
+                        <Font name="Lato-Light" size="30.0" />
+                    </font>
+                </Label>
+                <JFXButton fx:id="backArrow" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="8.0" layoutY="4.0" onMouseClicked="#goBack" prefHeight="15.0" prefWidth="26.0" ripplerFill="#3b3d4d">
+                    <graphic>
+                        <FontAwesomeIconView fill="#cacac9" glyphName="ARROW_LEFT" size="21" />
+                    </graphic>
+                </JFXButton>
+                <VBox layoutX="84.0" layoutY="127.0" prefHeight="339.0" prefWidth="400.0">
+                    <children>
+                        <JFXTextField fx:id="numero" focusColor="#a6bd55" labelFloat="true" promptText="Número" stylesheets="@../css/style.css" unFocusColor="#a4a4a4">
+                            <VBox.margin>
+                                <Insets top="30.0" />
+                            </VBox.margin>
+                        </JFXTextField>
+                        <Label fx:id="errorLabelNumero" styleClass="wrong" text="No puedes dejar este campo en blanco." />
+                  <JFXTextArea fx:id="desripcion" focusColor="#a6bd55" prefHeight="129.0" prefWidth="400.0" promptText="Descripción del caso" styleClass="jfx-text-field" unFocusColor="#a4a4a4">
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                  </JFXTextArea>
+                        <Label fx:id="errorLabelDescripcion" styleClass="wrong" text="No puedes dejar este campo en blanco." />
+                    </children>
+                </VBox>
+                <HBox layoutY="507.0" prefHeight="56.0" prefWidth="543.0">
+                    <children>
+                        <JFXButton fx:id="btnRegistrar" onAction="#registrar" prefHeight="56.0" prefWidth="560.0" ripplerFill="#3b3d4d" styleClass="jfx-button-main-style" stylesheets="@../css/style.css" text="Registrar" textFill="#cacac9">
+                            <font>
+                                <Font name="Lato-Light" size="28.0" />
+                            </font>
+                        </JFXButton>
+                    </children>
+                </HBox>
+                <JFXButton alignment="TOP_CENTER" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="516.0" layoutY="4.0" onMouseClicked="#exitApp" prefHeight="24.0" prefWidth="26.0" ripplerFill="#3b3d4d">
+                    <graphic>
+                        <FontAwesomeIconView fill="#e74c3c" glyphName="CLOSE" size="21" />
+                    </graphic>
+                    <padding>
+                        <Insets bottom="8.0" />
+                    </padding>
+                </JFXButton>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="exitoBanner" layoutX="96.0" layoutY="192.0" prefHeight="245.0" prefWidth="387.0" styleClass="banner" stylesheets="@../css/style.css">
+            <children>
+                <Label fx:id="exitoLabel" layoutX="41.0" layoutY="103.0" text="Se registro exitosamente" textFill="#3b3d4d">
+                    <font>
+                        <Font size="28.0" />
+                    </font>
+                </Label>
+                <FontAwesomeIconView fill="#3b3d4d" glyphName="CHECK_CIRCLE" layoutX="168.0" layoutY="81.0" size="60" />
+                <JFXButton fx:id="btnAceptar" layoutX="142.0" layoutY="172.0" onAction="#exitSuccessBanner" prefHeight="40.0" prefWidth="104.0" styleClass="btnAceptar" text="Aceptar" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

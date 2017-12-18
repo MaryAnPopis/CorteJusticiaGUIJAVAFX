@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -77,6 +78,8 @@ public class PerfilQuerellanteController implements Initializable {
 
         //--------------------------------------
         querellanteLabel.setText(this.username);
+        RegistroCasoQuerellanteController registroCaso = new RegistroCasoQuerellanteController();
+        registroCaso.setCedula(cedulaQuere);
     }
 
     public ArrayList<Caso> getCasosByQuerellante() {
@@ -134,6 +137,25 @@ public class PerfilQuerellanteController implements Initializable {
         return cedulaQuere;
     }
     
+    @FXML
+    void registrarCaso(MouseEvent event) throws IOException {
+        closeCurrentWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/RegistroCasoQuerellante.fxml"));
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        root.setStyle("-fx-background-color: transparent;");
+
+        // set icon
+        FXUtils.displayIcon(stage);
+
+        //set draggable window
+        FXUtils.makeDraggableWindow(root, stage);
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
+    }
     
 
     @FXML

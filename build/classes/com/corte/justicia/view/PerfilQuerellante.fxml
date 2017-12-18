@@ -53,11 +53,16 @@
                   <TableColumn fx:id="descripcion" prefWidth="413.0" text="Descripción" />
               </columns>
             </TableView>
-            <Label layoutX="22.0" layoutY="62.0" text="Casos" textFill="#d7d7d6">
+            <Label layoutX="22.0" layoutY="62.0" text="Lista de casos" textFill="#d7d7d6">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
+            <JFXButton layoutX="785.0" layoutY="62.0" onMouseClicked="#registrarCaso" prefHeight="45.0" prefWidth="237.0" style="-fx-background-color: #51526a;" text="Ingresar caso" textFill="#d7d7d6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
    </children>
