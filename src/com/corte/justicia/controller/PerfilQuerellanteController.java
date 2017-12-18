@@ -6,19 +6,31 @@
 package com.corte.justicia.controller;
 
 import com.corte.justicia.utils.FXUtils;
+import gestor.GestorCaso;
+import gestor.GestorJuez;
+import gestor.GestorQuerellante;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import objetos.Caso;
+import objetos.Juez;
 
 /**
  * FXML Controller class
@@ -26,18 +38,70 @@ import javafx.stage.StageStyle;
  * @author Mari
  */
 public class PerfilQuerellanteController implements Initializable {
+
     @FXML
     private Label querellanteLabel;
-    
+
+    @FXML
+    private TableView<Caso> casos;
+
+    @FXML
+    private TableColumn<Caso, String> numero;
+
+    @FXML
+    private TableColumn<Caso, LocalDate> fecha;
+
+    @FXML
+    private TableColumn<Caso, Juez> juez;
+
+    @FXML
+    private TableColumn<Caso, String> estado;
+
+    @FXML
+    private TableColumn<Caso, String> descripcion;
+
     private static String username;
-    
+    private static String cedulaQuere;
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        numero.setCellValueFactory(new PropertyValueFactory<>("numero"));
+        fecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        juez.setCellValueFactory(new PropertyValueFactory<>("mediador"));
+        estado.setCellValueFactory(new PropertyValueFactory<>("estadoNombre"));
+        descripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));       
+        casos.getItems().setAll(getCasosByQuerellante());
+
+        //--------------------------------------
+        querellanteLabel.setText(this.username);
+    }
+
+    public ArrayList<Caso> getCasosByQuerellante() {
+
+        GestorCaso gestor = new GestorCaso();
+        GestorQuerellante gestorQu = new GestorQuerellante();
+        ArrayList<Caso> casos = null;
+
+        try {
+            casos = gestor.getCasosByQuerellante(gestorQu.getQuerellanteIdByCedula(this.cedulaQuere));
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return casos;
+
+    }
+
     @FXML
     public void closeCurrentWindow() {
         Stage stage = (Stage) querellanteLabel.getScene().getWindow();
         stage.close();
-    }  
-    
-    
+    }
+
     @FXML
     void cerrarSesion(MouseEvent event) throws IOException {
         closeCurrentWindow();
@@ -57,21 +121,24 @@ public class PerfilQuerellanteController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    
-    public void setUsername(String username){
-        this.username = username;
+
+    public void setUsername(String cedula) {
+        this.username = cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedulaQuere = cedula;
+    }
+
+    public String getCedulaQuere() {
+        return cedulaQuere;
     }
     
-@FXML
+    
+
+    @FXML
     void exitApp(MouseEvent event) {
         System.exit(0);
     }
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        querellanteLabel.setText(this.username);
-    }    
-    
+
 }

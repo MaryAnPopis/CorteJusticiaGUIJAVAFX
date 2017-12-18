@@ -44,13 +44,13 @@
                   <FontAwesomeIconView fill="LIGHTGRAY" glyphName="SIGN_OUT" size="18" />
                </graphic>
             </JFXButton>
-            <TableView layoutX="22.0" layoutY="115.0" prefHeight="471.0" prefWidth="1000.0" stylesheets="@../css/style.css">
+            <TableView fx:id="casos" layoutX="22.0" layoutY="115.0" prefHeight="471.0" prefWidth="1000.0" stylesheets="@../css/style.css">
               <columns>
-                <TableColumn prefWidth="95.99999237060547" text="Número " />
-                <TableColumn prefWidth="159.66668701171875" text="Nombre" />
-                  <TableColumn prefWidth="178.66668701171875" text="Juez" />
-                  <TableColumn prefWidth="126.0" text="Estado" />
-                  <TableColumn prefWidth="413.0" text="Descripción" />
+                <TableColumn fx:id="numero" prefWidth="95.99999237060547" text="Número " />
+                <TableColumn fx:id="fecha" prefWidth="159.66668701171875" text="Fecha" />
+                  <TableColumn fx:id="juez" prefWidth="178.66668701171875" text="Juez" />
+                  <TableColumn fx:id="estado" prefWidth="126.0" text="Estado" />
+                  <TableColumn fx:id="descripcion" prefWidth="413.0" text="Descripción" />
               </columns>
             </TableView>
             <Label layoutX="22.0" layoutY="62.0" text="Casos" textFill="#d7d7d6">

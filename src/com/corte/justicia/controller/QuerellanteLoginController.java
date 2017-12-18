@@ -66,18 +66,18 @@ public class QuerellanteLoginController implements Initializable {
     @FXML
     void loginJuez(ActionEvent event) throws IOException, Exception {
         String username = this.usuario.getText();
-        
+       
         GestorQuerellante gestor = new GestorQuerellante();
         PerfilQuerellanteController perfil = new PerfilQuerellanteController();
-        
+         perfil.setCedula(username);
         String nombre = gestor.nombreByCedula(username);
         
         if (gestor.inicioSesion(username) != null ) {
             errorLabel.setVisible(false);
             Validacion.greenInputTextField(usuario);
+           
             perfil.setUsername(nombre);
-            
-            
+        
             irPerfilQuerellante();
             closeCurrentWindow();
         }else {
