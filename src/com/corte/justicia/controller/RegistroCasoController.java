@@ -16,8 +16,7 @@ import com.jfoenix.controls.JFXTextField;
 import gestor.GestorCaso;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Random;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +28,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import objetos.Juez;
 import objetos.Querellante;
 /**
  * FXML Controller class
@@ -60,8 +58,10 @@ public class RegistroCasoController implements Initializable {
     }
 
     @FXML
-    void exitSuccessBanner(ActionEvent event) {
-
+    void exitSuccessBanner(ActionEvent event) throws IOException {
+        FXUtils.fadeOutBanner(exitoBanner);
+        closeCurrentWindow();
+        irPerfilSecretario();  
     }
 
     @FXML
@@ -86,14 +86,15 @@ public class RegistroCasoController implements Initializable {
             errorLabelFalse();
             turnGreenInput();
             Validacion.sucessBanner(exitoBanner, exitoLabel);
-            closeCurrentWindow();
-            irPerfilSecretario();
+            
+       
         }else if(gestor.querellanteIDByCedula(cedulaQuere) == null){      
             styleQuerellanteField(cedulaQuere);
         }else {
             styleInputError();
         }
     }
+    
     
     
     void styleQuerellanteField(String cedulaQuere) throws Exception{
