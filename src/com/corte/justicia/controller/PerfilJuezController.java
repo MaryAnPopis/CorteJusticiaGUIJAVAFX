@@ -58,6 +58,9 @@ public class PerfilJuezController implements Initializable {
     @FXML
     private TableColumn<Caso, String> descripcion;
     
+    @FXML
+    private TableColumn<Caso, String> comentarioEstado;
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -71,11 +74,17 @@ public class PerfilJuezController implements Initializable {
         querellante.setCellValueFactory(new PropertyValueFactory<>("demandante"));
         estado.setCellValueFactory(new PropertyValueFactory<>("estadoNombre"));
         descripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));       
+        comentarioEstado.setCellValueFactory(new PropertyValueFactory<>("comentarioEstado")); 
         casos.getItems().setAll(getCasosByJuez());
-        
-        
+          
         //----------------------------
         juezLabel.setText(this.username);
+    }
+    @FXML
+    void modificarEstado(MouseEvent event){
+        Caso casoSelecionado = casos.getSelectionModel().getSelectedItem();
+        
+        System.out.println(casoSelecionado.getNumero());
     }
     
     public ArrayList<Caso> getCasosByJuez() {

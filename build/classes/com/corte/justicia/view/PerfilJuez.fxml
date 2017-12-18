@@ -47,13 +47,14 @@
             <TableView fx:id="casos" layoutX="22.0" layoutY="115.0" prefHeight="471.0" prefWidth="1000.0" stylesheets="@../css/style.css">
               <columns>
                 <TableColumn fx:id="numero" prefWidth="95.99999237060547" text="Número " />
-                <TableColumn fx:id="fecha" prefWidth="159.66668701171875" text="Fecha" />
-                  <TableColumn fx:id="querellante" prefWidth="178.66668701171875" text="Querellante" />
-                  <TableColumn fx:id="estado" prefWidth="148.0" text="Estado" />
-                  <TableColumn fx:id="descripcion" prefWidth="391.0" text="Descripción" />
+                <TableColumn fx:id="fecha" prefWidth="114.99996948242188" text="Fecha" />
+                  <TableColumn fx:id="querellante" prefWidth="224.0" text="Querellante" />
+                  <TableColumn fx:id="descripcion" prefWidth="239.0" text="Descripción" />
+                  <TableColumn fx:id="estado" prefWidth="100.0" text="Estado" />
+                  <TableColumn fx:id="comentarioEstado" prefWidth="226.0" text="Comentario de estado" />
               </columns>
             </TableView>
-            <JFXButton layoutX="22.0" layoutY="64.0" prefHeight="39.0" prefWidth="207.0" style="-fx-background-color: #51526a;" text="Modificar estado" textFill="#d7d7d6">
+            <JFXButton layoutX="22.0" layoutY="64.0" onMouseClicked="#modificarEstado" prefHeight="39.0" prefWidth="207.0" style="-fx-background-color: #51526a;" text="Modificar estado" textFill="#d7d7d6">
                <font>
                   <Font size="18.0" />
                </font>

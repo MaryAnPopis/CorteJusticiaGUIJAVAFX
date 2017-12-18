@@ -60,6 +60,9 @@ public class PerfilQuerellanteController implements Initializable {
 
     @FXML
     private TableColumn<Caso, String> descripcion;
+    
+    @FXML
+    private TableColumn<Caso, String> comentarioEstado;
 
     private static String username;
     private static String cedulaQuere;
@@ -73,7 +76,8 @@ public class PerfilQuerellanteController implements Initializable {
         fecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         juez.setCellValueFactory(new PropertyValueFactory<>("mediador"));
         estado.setCellValueFactory(new PropertyValueFactory<>("estadoNombre"));
-        descripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));       
+        descripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));   
+        comentarioEstado.setCellValueFactory(new PropertyValueFactory<>("comentarioEstado")); 
         casos.getItems().setAll(getCasosByQuerellante());
 
         //--------------------------------------

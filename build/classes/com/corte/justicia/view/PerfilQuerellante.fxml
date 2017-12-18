@@ -47,10 +47,11 @@
             <TableView fx:id="casos" layoutX="22.0" layoutY="115.0" prefHeight="471.0" prefWidth="1000.0" stylesheets="@../css/style.css">
               <columns>
                 <TableColumn fx:id="numero" prefWidth="95.99999237060547" text="Número " />
-                <TableColumn fx:id="fecha" prefWidth="159.66668701171875" text="Fecha" />
-                  <TableColumn fx:id="juez" prefWidth="178.66668701171875" text="Juez" />
-                  <TableColumn fx:id="estado" prefWidth="126.0" text="Estado" />
-                  <TableColumn fx:id="descripcion" prefWidth="413.0" text="Descripción" />
+                <TableColumn fx:id="fecha" prefWidth="109.0" text="Fecha" />
+                  <TableColumn fx:id="juez" prefWidth="184.0" text="Juez" />
+                  <TableColumn fx:id="descripcion" prefWidth="276.0" text="Descripción" />
+                  <TableColumn fx:id="estado" prefWidth="85.0" text="Estado" />
+                  <TableColumn fx:id="comentarioEstado" prefWidth="238.0" text="Comentario de estado" />
               </columns>
             </TableView>
             <Label layoutX="22.0" layoutY="62.0" text="Lista de casos" textFill="#d7d7d6">

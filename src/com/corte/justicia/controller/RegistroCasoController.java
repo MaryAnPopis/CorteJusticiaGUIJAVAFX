@@ -16,6 +16,7 @@ import com.jfoenix.controls.JFXTextField;
 import gestor.GestorCaso;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Random;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,10 +41,10 @@ public class RegistroCasoController implements Initializable {
     private JFXButton backArrow, btnRegistrar, btnAceptar;
 
     @FXML
-    private JFXTextField numero, cedulaQuerellante;
+    private JFXTextField  cedulaQuerellante;
 
     @FXML
-    private Label exitoLabel,errorLabelNumero, errorLabelCedulaQuerellante, errorLabelDescripcion, errorNoExiste;
+    private Label exitoLabel, errorLabelCedulaQuerellante, errorLabelDescripcion, errorNoExiste;
 
     @FXML
     private JFXTextArea desripcion;
@@ -68,20 +69,20 @@ public class RegistroCasoController implements Initializable {
     void registrar(ActionEvent event) throws IOException, Exception {
         
         GestorCaso gestor = new GestorCaso();
-        String numeroCaso = this.numero.getText();
         String descripcion = this.desripcion.getText();
         String cedulaQuere = this.cedulaQuerellante.getText();
         int estado = 1;  
         LocalDate fecha = LocalDate.now();
         int randomId = gestor.setRandomJuezId();
-
+        String comentarioInicial = "Caso recibido";
         
+        String numeroCaso = cedulaQuere + "-" + getNumeroCasoString() ;
         if (!isEmptyInput() && gestor.querellanteIDByCedula(cedulaQuere) != null) {
             
             Querellante quere = gestor.querellanteIDByCedula(cedulaQuere);
   
             
-            gestor.registrarCaso(numeroCaso, quere.getId_querellante(), randomId ,estado,fecha,descripcion);
+            gestor.registrarCaso(numeroCaso, quere.getId_querellante(), randomId ,estado,fecha,descripcion, comentarioInicial);
             
             errorLabelFalse();
             turnGreenInput();
@@ -93,6 +94,19 @@ public class RegistroCasoController implements Initializable {
         }else {
             styleInputError();
         }
+    }
+    
+    public String getNumeroCasoString() {
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 5) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+
     }
     
     
@@ -111,17 +125,11 @@ public class RegistroCasoController implements Initializable {
     
     void styleInputError() {
 
-        String numeroCaso = this.numero.getText();
+
         String descripcion = this.desripcion.getText();
         String cedulaQuere = this.cedulaQuerellante.getText();
         //JFXTextField
-        if (numeroCaso.isEmpty()) {
-            Validacion.redInputTextField(this.numero);
-            errorLabelNumero.setVisible(true);
-        } else {
-            Validacion.greenInputTextField(this.numero);
-            errorLabelNumero.setVisible(false);
-        }
+
         
         if (cedulaQuere.isEmpty()) {
             Validacion.redInputTextField(this.cedulaQuerellante);
@@ -142,7 +150,7 @@ public class RegistroCasoController implements Initializable {
     }
     
     void turnGreenInput() {
-        Validacion.greenInputTextField(numero);
+    
         Validacion.greenInputTextField(cedulaQuerellante);
         Validacion.greenInputTextAreaField(desripcion);
     }
@@ -150,7 +158,7 @@ public class RegistroCasoController implements Initializable {
     void errorLabelFalse() {
         errorNoExiste.setVisible(false);
         errorLabelCedulaQuerellante.setVisible(false);
-        errorLabelNumero.setVisible(false);
+
         errorLabelDescripcion.setVisible(false);
         exitoLabel.setVisible(false);
         exitoBanner.setVisible(false);
@@ -158,10 +166,10 @@ public class RegistroCasoController implements Initializable {
     
     boolean isEmptyInput() {
 
-        String numero = this.numero.getText();
+
         String descripcion = this.desripcion.getText();
         String cedulaQuere = this.cedulaQuerellante.getText();
-        String[] inputs = {numero, descripcion, cedulaQuere};
+        String[] inputs = { descripcion, cedulaQuere};
 
         for (int i = 0; i < inputs.length; i++) {
             if (inputs[i].isEmpty()) {

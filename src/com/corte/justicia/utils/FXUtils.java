@@ -1,5 +1,6 @@
 package com.corte.justicia.utils;
 
+import java.util.Random;
 import javafx.animation.FadeTransition;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
@@ -104,5 +105,7 @@ public class FXUtils {
         fadeOut.setToValue(0);
         fadeOut.play();
     }
+    
+    
 
 }
