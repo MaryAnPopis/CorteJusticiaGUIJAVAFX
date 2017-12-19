@@ -102,6 +102,85 @@ public class PerfilQuerellanteController implements Initializable {
         return casos;
 
     }
+    
+    @FXML
+    void verDetalleEstado(MouseEvent event) throws Exception {
+        Caso casoSelecionado = casos.getSelectionModel().getSelectedItem();
+        GestorCaso gestor = new GestorCaso();
+        EstadoDetalleController detalle = new EstadoDetalleController();
+        String numero = casoSelecionado.getNumero();
+        int id_caso = gestor.getIdCasoByNumero(numero);
+        int idEstado = gestor.getIdEstadoByIdCaso(id_caso);
+        
+        String path ;
+        switch(idEstado){
+            case 1:
+                detalle.setIdCaso(id_caso);    
+                detalle.setIdEstado(1);
+                path = "EstadoDetalle";
+                abrirViewSinCerrar(path);
+                break;
+            case 2:
+                detalle.setIdCaso(id_caso);    
+                detalle.setIdEstado(2);
+                path = "EstadoDetalle";
+                abrirViewSinCerrar(path);
+                break;    
+            case 3:
+                detalle.setIdCaso(id_caso);    
+                detalle.setIdEstado(3);
+                path = "EstadoDetalle";
+                abrirViewSinCerrar(path);
+                break; 
+            case 4:
+                
+                detalle.setIdCaso(id_caso);    
+                detalle.setIdEstado(4);
+                path = "EstadoDetalle";
+                abrirViewSinCerrar(path);
+                break; 
+            case 5:
+                detalle.setIdCaso(id_caso);    
+                detalle.setIdEstado(5);
+                path = "EstadoDetalle";
+                abrirViewSinCerrar(path);
+                break;
+            case 6:
+                detalle.setIdCaso(id_caso);    
+                detalle.setIdEstado(6);
+                path = "EstadoDetalle";
+                abrirViewSinCerrar(path);
+                break;   
+            case 7:
+                detalle.setIdCaso(id_caso);    
+                detalle.setIdEstado(7);
+                path = "EstadoDetalle";
+                abrirViewSinCerrar(path);
+                break;     
+                
+            default:
+                System.exit(0);
+        }
+    }
+    
+    void abrirViewSinCerrar(String path) throws IOException{
+//        closeCurrentWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/"+path+".fxml"));
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        root.setStyle("-fx-background-color: transparent;");
+
+        // set icon
+        FXUtils.displayIcon(stage);
+
+        //set draggable window
+        FXUtils.makeDraggableWindow(root, stage);
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @FXML
     public void closeCurrentWindow() {

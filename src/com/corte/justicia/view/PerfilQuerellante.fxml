@@ -56,10 +56,15 @@
             </TableView>
             <Label layoutX="22.0" layoutY="62.0" text="Lista de casos" textFill="#d7d7d6">
                <font>
-                  <Font size="36.0" />
+                  <Font size="32.0" />
                </font>
             </Label>
-            <JFXButton layoutX="785.0" layoutY="62.0" onMouseClicked="#registrarCaso" prefHeight="45.0" prefWidth="237.0" style="-fx-background-color: #51526a;" text="Ingresar caso" textFill="#d7d7d6">
+            <JFXButton layoutX="518.0" layoutY="63.0" onMouseClicked="#registrarCaso" prefHeight="45.0" prefWidth="237.0" styleClass="jfx-button-main-style" stylesheets="@../css/style.css" text="Ingresar caso" textFill="#d7d7d6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="785.0" layoutY="63.0" onMouseClicked="#verDetalleEstado" prefHeight="45.0" prefWidth="237.0" styleClass="jfx-button-main-style" stylesheets="@../css/style.css" text="Ver dellate de estado" textFill="#d7d7d6">
                <font>
                   <Font size="18.0" />
                </font>

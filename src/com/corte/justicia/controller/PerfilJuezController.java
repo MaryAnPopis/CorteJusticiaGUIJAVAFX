@@ -153,7 +153,7 @@ public class PerfilJuezController implements Initializable {
     
     @FXML
     void verDetalleEstado(MouseEvent event) throws Exception {
-         Caso casoSelecionado = casos.getSelectionModel().getSelectedItem();
+        Caso casoSelecionado = casos.getSelectionModel().getSelectedItem();
         GestorCaso gestor = new GestorCaso();
         EstadoDetalleController detalle = new EstadoDetalleController();
         String numero = casoSelecionado.getNumero();
