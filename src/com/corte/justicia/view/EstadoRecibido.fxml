@@ -14,8 +14,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="605.0" prefWidth="491.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="com.corte.justicia.controller.EstadoRecibidoController">
+<AnchorPane id="AnchorPane" prefHeight="605.0" prefWidth="491.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.corte.justicia.controller.EstadoRecibidoController">
     <children>
+        <AnchorPane fx:id="exitoBanner" layoutX="81.0" layoutY="175.0" prefHeight="245.0" prefWidth="330.0" styleClass="banner" stylesheets="@../css/style.css">
+            <children>
+                <Label fx:id="exitoLabel" layoutX="9.0" layoutY="109.0" text="Se realizaron los cambios exitosamente" textFill="#3b3d4d">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <FontAwesomeIconView fill="#3b3d4d" glyphName="CHECK_CIRCLE" layoutX="139.0" layoutY="78.0" size="60" />
+                <JFXButton fx:id="btnAceptar" layoutX="113.0" layoutY="172.0" onAction="#exitSuccessBanner" prefHeight="40.0" prefWidth="104.0" styleClass="btnAceptar" text="Aceptar" />
+            </children>
+        </AnchorPane>
         <AnchorPane layoutX="21.0" layoutY="21.0" prefHeight="563.0" prefWidth="376.0" styleClass="mainBackground" stylesheets="@../css/style.css">
             <children>
                 <ImageView fitHeight="276.0" fitWidth="285.0" layoutX="92.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
@@ -62,6 +73,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </JFXRadioButton>
+                  <Label fx:id="errorRadioButton" styleClass="wrong" text="Debes elegir un estado" />
                   <JFXTextArea fx:id="detalle" focusColor="#a4bb55" labelFloat="true" prefHeight="137.0" prefWidth="309.0" promptText="Cometario del estado elegido" styleClass="jfx-text-field" stylesheets="@../css/style.css" unFocusColor="#a4a4a4">
                      <VBox.margin>
                         <Insets top="25.0" />
@@ -106,17 +118,6 @@
                   </JFXButton>
                </children>
             </HBox>
-            </children>
-        </AnchorPane>
-        <AnchorPane fx:id="exitoBanner" layoutX="81.0" layoutY="175.0" prefHeight="245.0" prefWidth="330.0" styleClass="banner" stylesheets="@../css/style.css">
-            <children>
-                <Label fx:id="exitoLabel" layoutX="9.0" layoutY="109.0" text="Se realizaron los cambios exitosamente" textFill="#3b3d4d">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <FontAwesomeIconView fill="#3b3d4d" glyphName="CHECK_CIRCLE" layoutX="139.0" layoutY="78.0" size="60" />
-                <JFXButton fx:id="btnAceptar" layoutX="113.0" layoutY="172.0" onAction="#exitSuccessBanner" prefHeight="40.0" prefWidth="104.0" styleClass="btnAceptar" text="Aceptar" />
             </children>
         </AnchorPane>
     </children>

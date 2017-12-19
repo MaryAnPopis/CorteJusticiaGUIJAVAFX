@@ -46,7 +46,7 @@ public class EstadoRecibidoController implements Initializable {
     private JFXTextArea detalle;
 
     @FXML
-    private Label errorLabelComentario, exitoLabel;
+    private Label errorLabelComentario, exitoLabel, errorRadioButton;
 
     @FXML
     private JFXButton btnAceptar, btnCancelar;
@@ -103,46 +103,50 @@ public class EstadoRecibidoController implements Initializable {
 
     @FXML
     void registrarEstado(ActionEvent event) throws SQLException, Exception {
-
+        String idSelected;
         RadioButton radioSelected = (RadioButton) estadoGrupo.getSelectedToggle();
-        String idSelected = radioSelected.getId();
-        int idEstado;
-        LocalDate fechaCambio = LocalDate.now();
-        String comentario = this.detalle.getText();
-        GestorCaso gestor = new GestorCaso();
-        if (!isEmptyInput() && estadoGrupo.getSelectedToggle() != null) {
-
-            switch (idSelected) {
-                case "aceptado":
-                    idEstado = 2;
-                    gestor.modificarEstado(idEstado, comentario, idCaso);
-                    gestor.registrarHistorial(comentario, idEstado, idCaso, fechaCambio);
-                    break;
-                case "consulta":
-                    idEstado = 3;
-                    gestor.modificarEstado(idEstado, comentario, idCaso);
-                    gestor.registrarHistorial(comentario, idEstado, idCaso, fechaCambio);
-                    break;
-                case "rechazado":
-                    idEstado = 4;
-                    gestor.modificarEstado(idEstado, comentario, idCaso);
-                    gestor.registrarHistorial(comentario, idEstado, idCaso, fechaCambio);
-                    break;
-                default:
-                    gestor.modificarEstado(1, comentario, idCaso);
-                    gestor.registrarHistorial(comentario, 1, idCaso, fechaCambio);
-                    break;
-            }
-   
-            errorLabelFalse();
-            turnGreenInput();
-            Validacion.sucessBanner(exitoBanner, exitoLabel);
-
+        if (radioSelected == null) {
+            errorRadioButton.setVisible(true);
         } else {
-            styleInputError();
+            errorRadioButton.setVisible(false);
+            idSelected = radioSelected.getId();
+            int idEstado;
+            LocalDate fechaCambio = LocalDate.now();
+            String comentario = this.detalle.getText();
+            GestorCaso gestor = new GestorCaso();
+            if (!isEmptyInput() && estadoGrupo.getSelectedToggle() != null) {
+
+                switch (idSelected) {
+                    case "aceptado":
+                        idEstado = 2;
+                        gestor.modificarEstado(idEstado, comentario, idCaso);
+                        gestor.registrarHistorial(comentario, idEstado, idCaso, fechaCambio);
+                        break;
+                    case "consulta":
+                        idEstado = 3;
+                        gestor.modificarEstado(idEstado, comentario, idCaso);
+                        gestor.registrarHistorial(comentario, idEstado, idCaso, fechaCambio);
+                        break;
+                    case "rechazado":
+                        idEstado = 4;
+                        gestor.modificarEstado(idEstado, comentario, idCaso);
+                        gestor.registrarHistorial(comentario, idEstado, idCaso, fechaCambio);
+                        break;
+                    default:
+                        gestor.modificarEstado(1, comentario, idCaso);
+                        gestor.registrarHistorial(comentario, 1, idCaso, fechaCambio);
+                        break;
+                }
+
+                errorLabelFalse();
+                turnGreenInput();
+                Validacion.sucessBanner(exitoBanner, exitoLabel);
+            } else {
+                styleInputError();
+            }
+
         }
 
-//        Validacion.sucessBanner(exitoBanner, exitoLabel);
     }
 
     void styleInputError() {
@@ -194,6 +198,7 @@ public class EstadoRecibidoController implements Initializable {
     }
 
     void errorLabelFalse() {
+        errorRadioButton.setVisible(false);
         errorLabelComentario.setVisible(false);
         exitoLabel.setVisible(false);
         exitoBanner.setVisible(false);
