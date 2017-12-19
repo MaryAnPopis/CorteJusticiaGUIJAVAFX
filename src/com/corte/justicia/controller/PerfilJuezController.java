@@ -81,10 +81,72 @@ public class PerfilJuezController implements Initializable {
         juezLabel.setText(this.username);
     }
     @FXML
-    void modificarEstado(MouseEvent event){
+    void modificarEstado(MouseEvent event) throws Exception{
         Caso casoSelecionado = casos.getSelectionModel().getSelectedItem();
+        GestorCaso gestor = new GestorCaso();
+  
+        String numero = casoSelecionado.getNumero();
+        int id_caso = gestor.getIdCasoByNumero(numero);
+        int idEstado = gestor.getIdEstadoByIdCaso(id_caso);
+        EstadoRecibidoController estado = new EstadoRecibidoController();
         
-        System.out.println(casoSelecionado.getNumero());
+        switch(idEstado){
+            case 1:
+                String path = "EstadoRecibido";
+                abrirView(path);
+                
+                estado.setIdCaso(id_caso);
+                break;
+            case 2:
+                
+                System.out.println("Aceptado");
+                break;    
+            case 3:
+                
+                System.out.println("Consulta");
+                break; 
+            case 4:
+                
+                System.out.println("Rechazado");
+                break; 
+            case 5:
+                
+                System.out.println("Redactado");
+                break;
+            case 6:
+                
+                System.out.println("Revision");
+                break;   
+            case 7:
+                
+                System.out.println("Resuelto");
+                break;     
+                
+            default:
+                System.exit(0);
+        }
+        
+
+    }
+    
+    
+    void abrirView(String path) throws IOException{
+        closeCurrentWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/"+path+".fxml"));
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        root.setStyle("-fx-background-color: transparent;");
+
+        // set icon
+        FXUtils.displayIcon(stage);
+
+        //set draggable window
+        FXUtils.makeDraggableWindow(root, stage);
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
     }
     
     public ArrayList<Caso> getCasosByJuez() {

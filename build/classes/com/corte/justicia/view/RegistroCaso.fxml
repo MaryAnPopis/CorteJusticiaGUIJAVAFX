@@ -15,17 +15,6 @@
 
 <AnchorPane id="AnchorPane" prefHeight="593.0" prefWidth="582.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.corte.justicia.controller.RegistroCasoController">
      <children>
-        <AnchorPane fx:id="exitoBanner" layoutX="96.0" layoutY="192.0" prefHeight="245.0" prefWidth="387.0" styleClass="banner" stylesheets="@../css/style.css">
-            <children>
-                <Label fx:id="exitoLabel" layoutX="41.0" layoutY="103.0" text="Se registro exitosamente" textFill="#3b3d4d">
-                    <font>
-                        <Font size="28.0" />
-                    </font>
-                </Label>
-                <FontAwesomeIconView fill="#3b3d4d" glyphName="CHECK_CIRCLE" layoutX="168.0" layoutY="81.0" size="60" />
-                <JFXButton fx:id="btnAceptar" layoutX="142.0" layoutY="172.0" onAction="#exitSuccessBanner" prefHeight="40.0" prefWidth="104.0" styleClass="btnAceptar" text="Aceptar" />
-            </children>
-        </AnchorPane>
         <AnchorPane layoutX="13.0" layoutY="15.0" prefHeight="563.0" prefWidth="536.0" styleClass="mainBackground" stylesheets="@../css/style.css">
             <children>
                 <ImageView fitHeight="276.0" fitWidth="285.0" layoutX="136.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
@@ -52,12 +41,15 @@
                   </JFXTextField>
                   <Label fx:id="errorLabelCedulaQuerellante" layoutX="10.0" layoutY="68.0" styleClass="wrong" text="No puedes dejar este campo en blanco." />
                   <Label fx:id="errorNoExiste" styleClass="wrong" text="Este querellante no existe, intentelo de nuevo" />
-                  <JFXTextArea fx:id="desripcion" focusColor="#a6bd55" prefHeight="176.0" prefWidth="400.0" promptText="Descripción del caso" styleClass="jfx-text-field" unFocusColor="#a4a4a4">
+                  <JFXTextArea fx:id="desripcion" focusColor="#a6bd55" labelFloat="true" prefHeight="176.0" prefWidth="400.0" promptText="Descripción del caso" styleClass="jfx-text-field" unFocusColor="#a4a4a4">
                      <VBox.margin>
                         <Insets top="50.0" />
                      </VBox.margin>
                   </JFXTextArea>
-                        <Label fx:id="errorLabelDescripcion" styleClass="wrong" text="No puedes dejar este campo en blanco." />
+                        <Label fx:id="errorLabelDescripcion" styleClass="wrong" text="No puedes dejar este campo en blanco.">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin></Label>
                     </children>
                 </VBox>
                 <HBox layoutY="507.0" prefHeight="56.0" prefWidth="543.0">
@@ -77,6 +69,17 @@
                         <Insets bottom="8.0" />
                     </padding>
                 </JFXButton>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="exitoBanner" layoutX="96.0" layoutY="192.0" prefHeight="245.0" prefWidth="387.0" styleClass="banner" stylesheets="@../css/style.css">
+            <children>
+                <Label fx:id="exitoLabel" layoutX="41.0" layoutY="103.0" text="Se registro exitosamente" textFill="#3b3d4d">
+                    <font>
+                        <Font size="28.0" />
+                    </font>
+                </Label>
+                <FontAwesomeIconView fill="#3b3d4d" glyphName="CHECK_CIRCLE" layoutX="168.0" layoutY="81.0" size="60" />
+                <JFXButton fx:id="btnAceptar" layoutX="142.0" layoutY="172.0" onAction="#exitSuccessBanner" prefHeight="40.0" prefWidth="104.0" styleClass="btnAceptar" text="Aceptar" />
             </children>
         </AnchorPane>
     </children>

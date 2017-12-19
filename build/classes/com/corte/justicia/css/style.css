@@ -45,6 +45,19 @@ rosa suave #eb9394
     -fx-text-fill: #3b3d4d;
 }
 
+
+
+.cancelbutton{
+    -fx-border-radius: 0px 0px 5px 5px;
+    -fx-background-color: #51526a;
+}
+
+
+.cancelbutton:hover{
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: #3b3d4d;
+}
+
 /*Botonnes del main*/
 .bigBtns:hover{
     -fx-background-color: #51526a;
