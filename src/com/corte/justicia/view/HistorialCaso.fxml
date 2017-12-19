@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="483.0" prefWidth="822.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="com.corte.justicia.controller.HistorialCasoController">
+    <children>
+      <AnchorPane layoutX="12.0" layoutY="13.0" prefHeight="452.0" prefWidth="796.0" style="-fx-background-color: #222434;" styleClass="mainBackground" stylesheets="@../css/style.css">
+         <children>
+            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="761.0" layoutY="-1.0" onMouseClicked="#exitApp" ripplerFill="#3b3d4d">
+               <graphic>
+                  <FontAwesomeIconView fill="#e74c3c" glyphName="CLOSE" size="21" />
+               </graphic>
+            </JFXButton>
+            <TableView fx:id="casos" layoutX="20.0" layoutY="76.0" prefHeight="355.0" prefWidth="757.0" stylesheets="@../css/style.css">
+              <columns>
+                <TableColumn fx:id="fecha" prefWidth="109.0" text="Fecha" />
+                  <TableColumn fx:id="estado" prefWidth="112.0" text="Estado" />
+                  <TableColumn fx:id="comentarioEstado" prefWidth="496.0" text="Comentario de estado" />
+              </columns>
+            </TableView>
+            <Label layoutX="340.0" layoutY="14.0" text="Historial" textFill="#a4bb55">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

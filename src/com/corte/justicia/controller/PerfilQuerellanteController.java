@@ -160,6 +160,7 @@ public class PerfilQuerellanteController implements Initializable {
                 
             default:
                 System.exit(0);
+                break;
         }
     }
     

@@ -54,12 +54,12 @@
                   <TableColumn fx:id="comentarioEstado" prefWidth="226.0" text="Comentario de estado" />
               </columns>
             </TableView>
-            <JFXButton layoutX="573.0" layoutY="65.0" onMouseClicked="#modificarEstado" prefHeight="39.0" prefWidth="207.0" styleClass="jfx-button-main-style" text="Modificar estado" textFill="#d7d7d6">
+            <JFXButton layoutX="346.0" layoutY="61.0" onMouseClicked="#modificarEstado" prefHeight="39.0" prefWidth="207.0" styleClass="jfx-button-main-style" text="Modificar estado" textFill="#d7d7d6">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="815.0" layoutY="65.0" onMouseClicked="#verDetalleEstado" prefHeight="39.0" prefWidth="207.0" styleClass="jfx-button-main-style" text="Ver dellate de estado" textFill="#d7d7d6">
+            <JFXButton layoutX="580.0" layoutY="61.0" onMouseClicked="#verDetalleEstado" prefHeight="39.0" prefWidth="207.0" styleClass="jfx-button-main-style" text="Ver dellate de estado" textFill="#d7d7d6">
                <font>
                   <Font size="18.0" />
                </font>
@@ -69,6 +69,11 @@
                   <Font size="32.0" />
                </font>
             </Label>
+            <JFXButton layoutX="815.0" layoutY="61.0" onMouseClicked="#verHistorialCaso" prefHeight="39.0" prefWidth="207.0" styleClass="jfx-button-main-style" text="Ver historial de caso" textFill="#d7d7d6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
    </children>

@@ -211,6 +211,21 @@ public class PerfilJuezController implements Initializable {
         }
     }
     
+    @FXML
+    void verHistorialCaso(MouseEvent event) throws Exception {
+        Caso casoSelecionado = casos.getSelectionModel().getSelectedItem();
+        GestorCaso gestor = new GestorCaso();
+        String numero = casoSelecionado.getNumero();
+        int id_caso = gestor.getIdCasoByNumero(numero);
+        
+    
+        HistorialCasoController historia = new HistorialCasoController();
+        historia.setUsername(id_caso);
+        
+        String path =  "HistorialCaso";
+        abrirViewSinCerrar( path);
+    }
+    
     
     void abrirViewSinCerrar(String path) throws IOException{
 //        closeCurrentWindow();
