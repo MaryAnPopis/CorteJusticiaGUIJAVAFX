@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="605.0" prefWidth="491.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.corte.justicia.controller.EstadoRecibidoController">
+<AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="529.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="com.corte.justicia.controller.EstadoConsultaController">
     <children>
         <AnchorPane layoutX="21.0" layoutY="21.0" prefHeight="563.0" prefWidth="376.0" styleClass="mainBackground" stylesheets="@../css/style.css">
             <children>
@@ -40,32 +40,21 @@
                         <Font size="17.0" />
                      </font>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets top="50.0" />
                      </VBox.margin>
                      <toggleGroup>
                         <ToggleGroup fx:id="estadoGrupo" />
                      </toggleGroup>
                   </JFXRadioButton>
-                  <JFXRadioButton fx:id="consulta" focusTraversable="false" prefHeight="48.0" prefWidth="154.0" text="Consulta" textFill="#ebebeb" toggleGroup="$estadoGrupo">
+                  <JFXRadioButton fx:id="rechazado" focusTraversable="false" layoutX="10.0" layoutY="60.0" prefHeight="60.0" prefWidth="154.0" text="Rechazado" textFill="#ebebeb" toggleGroup="$estadoGrupo">
                      <font>
                         <Font size="17.0" />
                      </font>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </JFXRadioButton>
-                  <JFXRadioButton fx:id="rechazado" focusTraversable="false" prefHeight="48.0" prefWidth="154.0" text="Rechazado" textFill="#ebebeb" toggleGroup="$estadoGrupo">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
                   </JFXRadioButton>
                   <Label fx:id="errorRadioButton" styleClass="wrong" text="Debes elegir un estado" />
                   <JFXTextArea fx:id="detalle" focusColor="#a4bb55" labelFloat="true" prefHeight="137.0" prefWidth="309.0" promptText="Cometario del estado elegido" styleClass="jfx-text-field" stylesheets="@../css/style.css" unFocusColor="#a4a4a4">
                      <VBox.margin>
-                        <Insets top="25.0" />
+                        <Insets top="35.0" />
                      </VBox.margin>
                   </JFXTextArea>
                   <Label fx:id="errorLabelComentario" styleClass="wrong" text="No puedes dejar este campo en blanco.">
@@ -117,7 +106,7 @@
                     </font>
                 </Label>
                 <FontAwesomeIconView fill="#3b3d4d" glyphName="CHECK_CIRCLE" layoutX="139.0" layoutY="78.0" size="60" />
-                <JFXButton fx:id="btnAceptar" layoutX="113.0" layoutY="172.0" onAction="#exitSuccessBanner" prefHeight="40.0" prefWidth="104.0" styleClass="btnAceptar" text="Aceptar" />
+                <JFXButton fx:id="btnAceptarr" layoutX="113.0" layoutY="172.0" onAction="#exitSuccessBanner" prefHeight="40.0" prefWidth="104.0" styleClass="btnAceptar" text="Aceptar" />
             </children>
         </AnchorPane>
     </children>

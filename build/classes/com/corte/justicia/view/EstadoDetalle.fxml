@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="378.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.corte.justicia.controller.EstadoDetalleController">
+   <children>
+      <AnchorPane layoutX="9.0" layoutY="8.0" prefHeight="361.0" prefWidth="556.0" style="-fx-background-color: #222434;" styleClass="mainBackground" stylesheets="@../css/style.css">
+         <children>
+             <JFXButton alignment="TOP_CENTER" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="529.0" onMouseClicked="#exitApp" prefHeight="24.0" prefWidth="26.0" ripplerFill="#3b3d4d">
+                    <graphic>
+                        <FontAwesomeIconView fill="#e74c3c" glyphName="CLOSE" size="21" />
+                    </graphic>
+                    <padding>
+                        <Insets bottom="8.0" />
+                    </padding>
+                </JFXButton>
+            <Label layoutX="92.0" layoutY="15.0" text="Este caso esta en estado" textFill="#d7d7d6">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="estado" layoutX="322.0" layoutY="15.0" text="Indefinido" textFill="#a4bb55">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="69.0" text="Detalle de la resolución" textFill="#d7d7d6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXTextArea fx:id="detalleResolucion" focusColor="#222434" layoutX="25.0" layoutY="103.0" prefHeight="238.0" prefWidth="505.0" style="-fx-text-fill: #a4bb55;" unFocusColor="#222434">
+               <font>
+                  <Font size="16.0" />
+               </font></JFXTextArea>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

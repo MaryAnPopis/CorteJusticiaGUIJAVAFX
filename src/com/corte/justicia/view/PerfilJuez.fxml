@@ -54,11 +54,21 @@
                   <TableColumn fx:id="comentarioEstado" prefWidth="226.0" text="Comentario de estado" />
               </columns>
             </TableView>
-            <JFXButton layoutX="22.0" layoutY="64.0" onMouseClicked="#modificarEstado" prefHeight="39.0" prefWidth="207.0" style="-fx-background-color: #51526a;" text="Modificar estado" textFill="#d7d7d6">
+            <JFXButton layoutX="573.0" layoutY="65.0" onMouseClicked="#modificarEstado" prefHeight="39.0" prefWidth="207.0" styleClass="jfx-button-main-style" text="Modificar estado" textFill="#d7d7d6">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXButton>
+            <JFXButton layoutX="815.0" layoutY="65.0" onMouseClicked="#verDetalleEstado" prefHeight="39.0" prefWidth="207.0" styleClass="jfx-button-main-style" text="Ver dellate de estado" textFill="#d7d7d6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="26.0" layoutY="57.0" text="Lista de casos" textFill="#d7d7d6">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
