@@ -62,7 +62,7 @@ public class RegistroCasoQuerellanteController implements Initializable {
     void exitSuccessBanner(ActionEvent event) throws IOException {
         FXUtils.fadeOutBanner(exitoBanner);
         closeCurrentWindow();
-        irPerfilSecretario();  
+        irPerfilSecretari();
     }
 
     @FXML
@@ -166,12 +166,27 @@ public class RegistroCasoQuerellanteController implements Initializable {
     }
     
      @FXML
-    void goBack(MouseEvent event) throws IOException {
-        irPerfilSecretario();
+    void irPerfil(MouseEvent event) throws IOException {
+        closeCurrentWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/PerfilQuerellante.fxml"));
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        root.setStyle("-fx-background-color: transparent;");
+
+        // set icon
+        FXUtils.displayIcon(stage);
+
+        //set draggable window
+        FXUtils.makeDraggableWindow(root, stage);
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
     }
     
-    
-    void irPerfilSecretario() throws IOException{
+
+    void irPerfilSecretari() throws IOException{
         closeCurrentWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/com/corte/justicia/view/PerfilQuerellante.fxml"));
         Stage stage = new Stage();

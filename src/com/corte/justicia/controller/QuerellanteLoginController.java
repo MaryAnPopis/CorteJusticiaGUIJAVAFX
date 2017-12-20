@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.corte.justicia.controller;
 
 import com.corte.justicia.utils.FXUtils;
@@ -53,7 +48,7 @@ public class QuerellanteLoginController implements Initializable {
         errorLabel.setVisible(false);
         //default Button is the button 
         //that receives a keyboard VK_ENTER press, if no other node in the scene consumes it.
-        logInBtn.setDefaultButton(true);
+       logInBtn.setDefaultButton(true);
     }
     
     
